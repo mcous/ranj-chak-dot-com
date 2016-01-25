@@ -1,0 +1,24 @@
+include sections
+
+doctype html
+html(lang='en')
+  head
+    meta(name='description' content='an illustrated guide to Ranjani Chakraborty')
+    meta(name='author' content='Ranjani Chakraborty')
+    meta(charset='utf-8')
+    link(href='bundle.css' rel='stylesheet')
+    title ranj chak dot com
+    
+  body
+    h1= title
+    
+    div#hero
+    
+    nav#section-nav
+    
+    each sect in sections
+      +section(sect)
+    
+    section#footer
+    
+    script(src='bundle.js')

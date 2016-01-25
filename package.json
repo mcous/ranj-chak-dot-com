@@ -1,0 +1,37 @@
+{
+  "name": "ranjchak-dot-com",
+  "version": "1.0.0",
+  "description": "Ranjani Chakraborty's personal website",
+  "main": "public/index.html",
+  "scripts": {
+    "start": "node server.js",
+    "lint:js": "eslint src/script/*.js",
+    "lint:css": "stylelint src/style/*.css",
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/mcous/ranjchak-dot-com"
+  },
+  "keywords": [
+    "Ranjani",
+    "Chakraborty",
+    "journalist",
+    "artist",
+    "cool"
+  ],
+  "author": "Mike Cousins <mike@cousins.io> (http://cousins.io)",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "eslint": "^1.10.3",
+    "express": "^4.13.4",
+    "jade": "^1.11.0",
+    "jade-loader": "^0.8.0",
+    "lost": "^6.7.0",
+    "mocha": "^2.3.4",
+    "postcss-cli": "^2.4.0",
+    "stylelint": "^4.1.0",
+    "stylelint-config-standard": "^2.0.0"
+  }
+}

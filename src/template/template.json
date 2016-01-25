@@ -1,0 +1,125 @@
+{
+  "imageDir": "img",
+  "title": "ranj af!",
+  "sections": [
+    {
+      "id": "film",
+      "title": "moving pictures",
+      "nav": "film-nav.png",
+      "banner": "file-banner.png"
+    },
+    {
+      "id": "writing",
+      "title": "internet words",
+      "nav": "writing-nav.png",
+      "banner": "writing-banner.png"
+    },
+    {
+      "id": "about",
+      "title": "about me",
+      "nav": "about-nav.png",
+      "banner": "about-banner.png"
+    }
+  ],
+  "content": {
+    "film": {
+      "videos": [
+        {
+          "name": "lorem",
+          "thumbnail": "http://placekitten.com/g/160/90",
+          "vimeo": "79327387"
+        },
+        {
+          "name": "ipsum",
+          "thumbnail": "http://placekitten.com/g/160/90",
+          "vimeoId": "12345678"
+        },
+        {
+          "name": "lorem",
+          "thumbnail": "http://placekitten.com/g/160/90",
+          "vimeo": "79327387"
+        },
+        {
+          "name": "ipsum",
+          "thumbnail": "http://placekitten.com/g/160/90",
+          "vimeoId": "12345678"
+        },
+        {
+          "name": "lorem",
+          "thumbnail": "http://placekitten.com/g/160/90",
+          "vimeo": "79327387"
+        },
+        {
+          "name": "ipsum",
+          "thumbnail": "http://placekitten.com/g/160/90",
+          "vimeoId": "12345678"
+        },
+        {
+          "name": "lorem",
+          "thumbnail": "http://placekitten.com/g/160/90",
+          "vimeo": "79327387"
+        },
+        {
+          "name": "ipsum",
+          "thumbnail": "http://placekitten.com/g/160/90",
+          "vimeoId": "12345678"
+        },
+        {
+          "name": "ipsum",
+          "thumbnail": "http://placekitten.com/g/160/90",
+          "vimeoId": "12345678"
+        }
+      ]
+    },
+    "writing": {
+      "articles": [
+        {
+          "name": "ipsum",
+          "blurb": "fizzbang",
+          "link": "#"
+        },
+        {
+          "name": "ipsum",
+          "blurb": "fizzbang",
+          "link": "#"
+        },
+        {
+          "name": "ipsum",
+          "blurb": "fizzbang",
+          "link": "#"
+        },
+        {
+          "name": "ipsum",
+          "blurb": "fizzbang",
+          "link": "#"
+        },
+        {
+          "name": "ipsum",
+          "blurb": "fizzbang",
+          "link": "#"
+        },
+        {
+          "name": "ipsum",
+          "blurb": "fizzbang",
+          "link": "#"
+        },
+        {
+          "name": "ipsum",
+          "blurb": "fizzbang",
+          "link": "#"
+        },
+        {
+          "name": "ipsum",
+          "blurb": "fizzbang",
+          "link": "#"
+        },
+        {
+          "name": "ipsum",
+          "blurb": "fizzbang",
+          "link": "#"
+        }
+      ]
+    },
+    "about": {}
+  }
+}
