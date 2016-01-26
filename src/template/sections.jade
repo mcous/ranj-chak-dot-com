@@ -1,7 +1,7 @@
 mixin section(params)
   - var id = params.id
   - var title = params.title
-  - var sectionContent = content[id]
+  - var content = sectionContent[id]
   
   section(id=id)
     h2= title
@@ -9,13 +9,13 @@ mixin section(params)
     case id
       when 'film'
         ul.video-list
-          each video in sectionContent.videos
+          each video in content.videos
             li(data-vimeo-id=video.vimeo)
               img(src=video.thumbnail)
         
       when 'writing'
         ul.article-list
-          each article in sectionContent.articles
+          each article in content.articles
             li.article-list-item
               a(href=article.link)
                 h3= article.name

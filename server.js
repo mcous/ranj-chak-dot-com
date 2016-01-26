@@ -1,12 +1,40 @@
-// development server
+// development server with livereload
 'use strict'
 
-var path = require('path')
-var express = require('express')
+const fs = require('fs')
+const http = require('http')
+const path = require('path')
+const events = require('events')
 
-var app = express()
+const express = require('express')
+const tinyLr = require('tiny-lr')
+const connectLivereload = require('connect-livereload')
+const debounce = require('lodash.debounce')
+const glob = require('glob')
+const moment = require('moment')
 
-app.use(express.static(path.join(__dirname, 'public')))
-app.listen(8080, function () {
-  console.log('Development server running at http://localhost:8080')
+const outGlob = path.join(__dirname, 'public/*')
+const outFiles = glob.sync(outGlob)
+
+const log = (message) => {
+  console.log(`[${moment().format('HH:mm:ss.SSS')}] ${message}`)
+}
+
+const handleChange = (event, filename) => {
+  if (filename) {
+    console.log(`[${moment().format('HH:mm:ss.SSS')}] ${filename} ${event}d`)
+    tinyLr.changed(filename)
+  }
+}
+
+outFiles.forEach((file) => {
+  console.log('watching ' + file)
+  fs.watch(file, debounce(handleChange, 500))
 })
+
+express()
+  .use(connectLivereload())
+  .use(express.static(path.join(__dirname, 'public')))
+  .listen(8080, () => console.log('\nServer running at http://localhost:8080\n'))
+
+tinyLr().listen(35729)

@@ -1,6 +1,6 @@
 {
   "imageDir": "img",
-  "title": "ranj af!",
+  "title": "ranj af.",
   "sections": [
     {
       "id": "film",
@@ -21,7 +21,7 @@
       "banner": "about-banner.png"
     }
   ],
-  "content": {
+  "sectionContent": {
     "film": {
       "videos": [
         {

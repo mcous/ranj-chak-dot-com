@@ -1,13 +1,18 @@
 {
   "name": "ranjchak-dot-com",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "Ranjani Chakraborty's personal website",
   "main": "public/index.html",
   "scripts": {
     "start": "node server.js",
     "lint:js": "eslint src/script/*.js",
     "lint:css": "stylelint src/style/*.css",
-    "test": "mocha"
+    "lint": "npm run lint:js && npm run lint:css",
+    "build": "make all",
+    "clean": "make clean",
+    "test": "mocha",
+    "posttest": "lint",
+    "postversion": "gh-pages -d public"
   },
   "repository": {
     "type": "git",
@@ -24,14 +29,21 @@
   "license": "ISC",
   "devDependencies": {
     "chai": "^3.4.1",
+    "connect-livereload": "^0.5.4",
     "eslint": "^1.10.3",
     "express": "^4.13.4",
+    "gh-pages": "^0.8.0",
+    "glob": "^6.0.4",
     "jade": "^1.11.0",
-    "jade-loader": "^0.8.0",
+    "lodash.debounce": "^4.0.0",
     "lost": "^6.7.0",
     "mocha": "^2.3.4",
+    "moment": "^2.11.1",
+    "onchange": "^2.0.0",
     "postcss-cli": "^2.4.0",
     "stylelint": "^4.1.0",
-    "stylelint-config-standard": "^2.0.0"
+    "stylelint-config-standard": "^2.0.0",
+    "tiny-lr": "^0.2.1",
+    "watchify": "^3.7.0"
   }
 }
