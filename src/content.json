@@ -1,71 +1,116 @@
 {
-  "imageDir": "img",
-  "title": "ranj af.",
+  "title": "Hi, I'm Ranjani",
+  "titleBanner": "img/title-banner.png",
+  "hero": "I'm a",
+  "heroTitle": "img/hero-title.png",
+  "heroBanner": {
+    "default": {
+      "name": "journalist",
+      "image": "img/hero-banner-default.png"
+    }
+  },
   "sections": [
     {
       "id": "film",
-      "title": "moving pictures",
-      "nav": "film-nav.png",
-      "banner": "file-banner.png"
+      "title": "moving",
+      "sub": "pictures",
+      "nav": "img/film-nav.png",
+      "bannerTitle": "img/film-banner-title.png",
+      "bannerSub": "img/film-banner-sub.png"
     },
     {
       "id": "writing",
-      "title": "internet words",
-      "nav": "writing-nav.png",
-      "banner": "writing-banner.png"
+      "title": "internet",
+      "sub": "words",
+      "nav": "img/writing-nav.png",
+      "bannerTitle": "img/writing-banner-title.png",
+      "bannerSub": "img/writing-banner-sub.png"
     },
     {
       "id": "about",
-      "title": "about me",
-      "nav": "about-nav.png",
-      "banner": "about-banner.png"
+      "title": "about",
+      "sub": "me",
+      "nav": "img/about-nav.png",
+      "bannerTitle": "img/about-banner-title.png",
+      "bannerSub": "img/about-banner-sub.png"
     }
   ],
   "sectionContent": {
     "film": {
+      "frame": "img/video-frame.png",
       "videos": [
         {
-          "name": "lorem",
+          "name": "1",
           "thumbnail": "http://placekitten.com/g/160/90",
           "vimeo": "79327387"
         },
         {
-          "name": "ipsum",
+          "name": "2",
           "thumbnail": "http://placekitten.com/g/160/90",
           "vimeoId": "12345678"
         },
         {
-          "name": "lorem",
+          "name": "3",
           "thumbnail": "http://placekitten.com/g/160/90",
           "vimeo": "79327387"
         },
         {
-          "name": "ipsum",
+          "name": "4",
           "thumbnail": "http://placekitten.com/g/160/90",
           "vimeoId": "12345678"
         },
         {
-          "name": "lorem",
+          "name": "5",
           "thumbnail": "http://placekitten.com/g/160/90",
           "vimeo": "79327387"
         },
         {
-          "name": "ipsum",
+          "name": "6",
           "thumbnail": "http://placekitten.com/g/160/90",
           "vimeoId": "12345678"
         },
         {
-          "name": "lorem",
+          "name": "7",
           "thumbnail": "http://placekitten.com/g/160/90",
           "vimeo": "79327387"
         },
         {
-          "name": "ipsum",
+          "name": "8",
           "thumbnail": "http://placekitten.com/g/160/90",
           "vimeoId": "12345678"
         },
         {
-          "name": "ipsum",
+          "name": "9",
+          "thumbnail": "http://placekitten.com/g/160/90",
+          "vimeoId": "12345678"
+        },
+        {
+          "name": "10",
+          "thumbnail": "http://placekitten.com/g/160/90",
+          "vimeo": "79327387"
+        },
+        {
+          "name": "11",
+          "thumbnail": "http://placekitten.com/g/160/90",
+          "vimeoId": "12345678"
+        },
+        {
+          "name": "12",
+          "thumbnail": "http://placekitten.com/g/160/90",
+          "vimeoId": "12345678"
+        },
+        {
+          "name": "13",
+          "thumbnail": "http://placekitten.com/g/160/90",
+          "vimeo": "79327387"
+        },
+        {
+          "name": "14",
+          "thumbnail": "http://placekitten.com/g/160/90",
+          "vimeoId": "12345678"
+        },
+        {
+          "name": "15",
           "thumbnail": "http://placekitten.com/g/160/90",
           "vimeoId": "12345678"
         }

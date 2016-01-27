@@ -41,6 +41,14 @@ Additionally, images live in `public/img`.
 
 All templates live in the `src/template` directory.
 
-The page is comprised mainly of `index.jade` and several sections, each described in the `sections.jade`. Most data for the templates is pulled at build time from `template.json`.
+The page is comprised mainly of `index.jade` and several sections, each described in the `sections.jade`. Content for the templates is pulled at build time from `src/content.json`.
 
-To editing, adding, or removing content from the site can probably be accomplished by editing `template.json`.
+### content
+
+Most editting, adding, or removing content from the site can be accomplished by editing `src/content.json`.
+
+#### top level content
+
+#### sections
+
+#### section content

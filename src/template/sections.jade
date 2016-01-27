@@ -1,17 +1,25 @@
 mixin section(params)
   - var id = params.id
   - var title = params.title
+  - var sub = params.sub
+  - var bannerTitleImg = params.bannerTitle
+  - var bannerSubImg = params.bannerSub
   - var content = sectionContent[id]
   
   section(id=id)
-    h2= title
+    h2.section-banner
+      img(src=bannerTitleImg alt=title).section-banner-item.section-banner-title
+      img(src=bannerSubImg alt=sub).section-banner-item.section-banner-sub
 
     case id
       when 'film'
         ul.video-list
           each video in content.videos
-            li(data-vimeo-id=video.vimeo)
-              img(src=video.thumbnail)
+            - var id = 'video-' + video.name
+            li(data-vimeo-id=video.vimeo).video-list-item
+              .video-list-thumbnail-container
+                img(id=id src=video.thumbnail).video-list-thumbnail
+              label(for=id).video-list-label= video.name
         
       when 'writing'
         ul.article-list

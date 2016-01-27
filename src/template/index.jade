@@ -10,14 +10,25 @@ html(lang='en')
     title ranj chak dot com
     
   body
-    h1= title
+    #title-and-hero-container
+      h1#title
+        img(src=titleBanner alt=title)#title-banner
+        img(src=heroTitle alt=hero).hero-image
+      
+      #hero
+        img(src=heroBanner.default.image alt=heroBanner.default.name).hero-image
     
-    div#hero
-    
-    nav#section-nav
-    
-    each sect in sections
-      +section(sect)
+    nav#nav
+      each sect in sections
+        a.nav-link
+          img.nav-link-image(
+            src=sect.nav
+            data-hover-src=sect.navHover
+            alt=sect.title + sect.sub)
+      
+    .sections
+      each sect in sections
+        +section(sect)
     
     section#footer
     
