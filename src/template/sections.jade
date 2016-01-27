@@ -8,8 +8,8 @@ mixin section(params)
   
   section(id=id)
     h2.section-banner
-      img(src=bannerTitleImg alt=title).section-banner-item.section-banner-title
-      img(src=bannerSubImg alt=sub).section-banner-item.section-banner-sub
+      img(src=title.image alt=title.text).section-banner-item.section-banner-title
+      img(src=sub.image alt=sub.text).section-banner-item.section-banner-sub
 
     case id
       when 'film'

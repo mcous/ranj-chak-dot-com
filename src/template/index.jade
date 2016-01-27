@@ -12,19 +12,20 @@ html(lang='en')
   body
     #title-and-hero-container
       h1#title
-        img(src=titleBanner alt=title)#title-banner
-        img(src=heroTitle alt=hero).hero-image
-      
+        img(src=title.image alt=title.text)#title-image
+
       #hero
-        img(src=heroBanner.default.image alt=heroBanner.default.name).hero-image
+        img(src=hero.default.image alt=hero.default.text).hero-image
+        img(src=heroSub.image alt=heroSub.text).hero-image
     
     nav#nav
       each sect in sections
-        a.nav-link
-          img.nav-link-image(
-            src=sect.nav
-            data-hover-src=sect.navHover
-            alt=sect.title + sect.sub)
+        a(href='#' + sect.id).nav-link
+          img(
+            src=sect.nav.icon
+            data-hover-src=sect.nav.hover
+            alt=sect.title.text + ' ' + sect.sub.text).nav-link-icon
+          img(src=sect.nav.image alt=sect.nav.text).nav-link-title
       
     .sections
       each sect in sections

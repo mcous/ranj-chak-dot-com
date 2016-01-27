@@ -1,38 +1,69 @@
 {
-  "title": "Hi, I'm Ranjani",
-  "titleBanner": "img/title-banner.png",
-  "hero": "I'm a",
-  "heroTitle": "img/hero-title.png",
-  "heroBanner": {
+  "title": {
+    "text": "Hi, I'm Ranjani",
+    "image": "img/title.png"
+  },
+  "hero": {
     "default": {
-      "name": "journalist",
-      "image": "img/hero-banner-default.png"
+      "text": "journalist",
+      "image": "img/default-hero.png"
     }
+  },
+  "heroSub": {
+    "text": "Check out my work",
+    "image": "img/hero-sub.png"
   },
   "sections": [
     {
       "id": "film",
-      "title": "moving",
-      "sub": "pictures",
-      "nav": "img/film-nav.png",
-      "bannerTitle": "img/film-banner-title.png",
-      "bannerSub": "img/film-banner-sub.png"
+      "title": {
+        "text": "moving",
+        "image": "img/film-title.png"
+      },
+      "sub": {
+        "text": "pictures",
+        "image": "img/film-sub.png"
+      },
+      "nav": {
+        "text": "a selection of videos I produced",
+        "image": "img/film-nav-title.png",
+        "icon": "img/film-nav-icon.png",
+        "hover": "img/film-nav-hover.png"
+      }
     },
     {
       "id": "writing",
-      "title": "internet",
-      "sub": "words",
-      "nav": "img/writing-nav.png",
-      "bannerTitle": "img/writing-banner-title.png",
-      "bannerSub": "img/writing-banner-sub.png"
+      "title": {
+        "text": "internet",
+        "image": "img/writing-title.png"
+      },
+      "sub": {
+        "text": "words",
+        "image": "img/writing-sub.png"
+      },
+      "nav": {
+        "text": "shockingly true stories I wrote",
+        "image": "img/writing-nav-title.png",
+        "icon": "img/writing-nav-icon.png",
+        "hover": "img/writing-nav-hover.png"
+      }
     },
     {
       "id": "about",
-      "title": "about",
-      "sub": "me",
-      "nav": "img/about-nav.png",
-      "bannerTitle": "img/about-banner-title.png",
-      "bannerSub": "img/about-banner-sub.png"
+      "title": {
+        "text": "about",
+        "image": "img/about-title.png"
+      },
+      "sub": {
+        "text": "me",
+        "image": "img/about-sub.png"
+      },
+      "nav": {
+        "text": "hopefully relevant facts about me",
+        "image": "img/about-nav-title.png",
+        "icon": "img/about-nav-icon.png",
+        "hover": "img/about-nav-hover.png"
+      }
     }
   ],
   "sectionContent": {
@@ -96,21 +127,6 @@
         },
         {
           "name": "12",
-          "thumbnail": "http://placekitten.com/g/160/90",
-          "vimeoId": "12345678"
-        },
-        {
-          "name": "13",
-          "thumbnail": "http://placekitten.com/g/160/90",
-          "vimeo": "79327387"
-        },
-        {
-          "name": "14",
-          "thumbnail": "http://placekitten.com/g/160/90",
-          "vimeoId": "12345678"
-        },
-        {
-          "name": "15",
           "thumbnail": "http://placekitten.com/g/160/90",
           "vimeoId": "12345678"
         }
