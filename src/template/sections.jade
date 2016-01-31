@@ -6,28 +6,34 @@ mixin section(params)
   - var bannerSubImg = params.bannerSub
   - var content = sectionContent[id]
   
-  section(id=id)
+  section(id=id).section
     h2.section-banner
       img(src=title.image alt=title.text).section-banner-item.section-banner-title
       img(src=sub.image alt=sub.text).section-banner-item.section-banner-sub
 
     case id
       when 'film'
-        ul.video-list
+        ul.section-story-list
           each video in content.videos
             - var id = 'video-' + video.name
             li(data-vimeo-id=video.vimeo).video-list-item
-              .video-list-thumbnail-container
-                img(id=id src=video.thumbnail).video-list-thumbnail
-              label(for=id).video-list-label= video.name
+              .video-embed-container
+                iframe(
+                  src='//player.vimeo.com/video/' + video.vimeoId
+                  frameborder="0"
+                  webkitallowfullscreen
+                  mozallowfullscreen
+                  allowfullscreen).video-list-embed
+              p.video-list-label= video.name
         
       when 'writing'
-        ul.article-list
+        ul.section-story-list
           each article in content.articles
-            li.article-list-item
-              a(href=article.link)
-                h3= article.name
-                p= article.blurb
+            li.story-list-item
+              .story-list-item-link-container
+                a(href=article.link target="_blank").story-list-item-container
+                  h3.story-title= article.name
+                  p.story-blurb= article.blurb
       
       when 'about'
         p this is the about me section

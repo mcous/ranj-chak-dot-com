@@ -18,19 +18,27 @@ html(lang='en')
         img(src=hero.default.image alt=hero.default.text).hero-image
         img(src=heroSub.image alt=heroSub.text).hero-image
     
-    nav#nav
-      each sect in sections
-        a(href='#' + sect.id).nav-link
-          img(
-            src=sect.nav.icon
-            data-hover-src=sect.nav.hover
-            alt=sect.title.text + ' ' + sect.sub.text).nav-link-icon
-          img(src=sect.nav.image alt=sect.nav.text).nav-link-title
+    #nav-container
+      nav#nav
+        each sect in sections
+          a(href='#' + sect.id).nav-link
+            img(
+              src=sect.nav.icon
+              data-hover-src=sect.nav.hover
+              alt=sect.title.text + ' ' + sect.sub.text).nav-link-icon
+            img(src=sect.nav.image alt=sect.nav.text).nav-link-title
       
     .sections
       each sect in sections
         +section(sect)
     
-    section#footer
+    footer#footer
+      #social-links-container
+        #social-links
+          each social in socials
+            - var link = social.link
+            - var target = (/^http/.test(link)) ? '_blank' : ''
+            a(href=link target=target).social-link
+              img(src=social.icon alt=social.name).social-link-icon
     
     script(src='bundle.js')
