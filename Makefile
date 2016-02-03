@@ -26,7 +26,7 @@ WATCHIFY = node_modules/.bin/watchify
 ONCHANGE = node_modules/.bin/onchange
 
 JADE_OPTS := -p $(TEMPLATE_ENTRY) -O $(CONTENT) < $(TEMPLATE_ENTRY) > $(TEMPLATE_OUT)
-POSTCSS_OPTS := -u postcss-nesting -u lost $(STYLE_ENTRY) > $(STYLE_OUT)
+POSTCSS_OPTS := -c .postcssrc $(STYLE_ENTRY) > $(STYLE_OUT)
 BROWSERIFY_OPTS := $(SCRIPT_ENTRY) -o $(SCRIPT_OUT)
 
 .PHONY: all clean watch
@@ -38,14 +38,14 @@ clean:
 
 watch:
 	$(ONCHANGE) $(TEMPLATE_SRC) $(CONTENT) -- make $(TEMPLATE_OUT) &
-	$(POSTCSS) -w $(POSTCSS_OPTS) &
+	$(ONCHANGE) $(STYLE_SRC) $(CONTENT) -- make $(STYLE_OUT) &
 	$(WATCHIFY) $(BROWSERIFY_OPTS) -v
 
 $(TEMPLATE_OUT): $(TEMPLATE_SRC) $(CONTENT)
 	$(JADE) $(JADE_OPTS)
 
-$(STYLE_OUT): $(STYLE_SRC)
+$(STYLE_OUT): $(STYLE_SRC) $(CONTENT)
 	$(POSTCSS) $(POSTCSS_OPTS)
 
-$(SCRIPT_OUT): $(SCRIPT_DIR)/*.js
+$(SCRIPT_OUT): $(SCRIPT_SRC) $(CONTENT)
 	$(BROWSERIFY) $(BROWSERIFY_OPTS)

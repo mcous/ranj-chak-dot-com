@@ -35,6 +35,6 @@ outFiles.forEach((file) => {
 express()
   .use(connectLivereload())
   .use(express.static(path.join(__dirname, 'public')))
-  .listen(8080, () => console.log('\nServer running at http://localhost:8080\n'))
+  .listen(8080, '0.0.0.0', () => console.log('\nServer running at http://localhost:8080\n'))
 
 tinyLr().listen(35729)

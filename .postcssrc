@@ -1,0 +1,14 @@
+module.exports = {
+  use: [
+    'postcss-import',
+    'postcss-map',
+    'postcss-nesting',
+    'lost'
+  ],
+  'postcss-map': {
+    maps: ['src/content.json']
+  },
+  'postcss-simple-vars': {
+    silent: true
+  }
+}

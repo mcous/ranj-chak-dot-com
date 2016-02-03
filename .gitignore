@@ -4,3 +4,6 @@ node_modules
 public/bundle.css
 public/bundle.js
 public/index.html
+
+# ignore optimized images
+public/img

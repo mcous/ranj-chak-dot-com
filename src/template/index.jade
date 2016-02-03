@@ -6,39 +6,48 @@ html(lang='en')
     meta(name='description' content='an illustrated guide to Ranjani Chakraborty')
     meta(name='author' content='Ranjani Chakraborty')
     meta(charset='utf-8')
+    meta(name='viewport' content='width=device-width,initial-scale=1')
     link(href='bundle.css' rel='stylesheet')
     title ranj chak dot com
     
   body
-    #title-and-hero-container
-      h1#title
-        img(src=title.image alt=title.text)#title-image
-
-      #hero
-        img(src=hero.default.image alt=hero.default.text).hero-image
-        img(src=heroSub.image alt=heroSub.text).hero-image
+    #hero
+      video(loop autoplay)#hero-video
+        source(src=hero.mp4 type="video/mp4")
+        source(src=hero.webm type="video/webm")
     
-    #nav-container
+    #title-container
+      h1#title
+        img(src=title.image alt=title.text).title-image
+        #subtitle  
+          img(src=subtitle.image alt=subtitle.text).title-image
+
+    #nav-container.container
       nav#nav
-        each sect in sections
-          a(href='#' + sect.id).nav-link
-            img(
-              src=sect.nav.icon
-              data-hover-src=sect.nav.hover
-              alt=sect.title.text + ' ' + sect.sub.text).nav-link-icon
-            img(src=sect.nav.image alt=sect.nav.text).nav-link-title
-      
+        #page-links.nav-links
+          each sect in sections
+            a(href='#' + sect.id title=sect.nav.title).nav-link
+              img(
+                src=sect.nav.icon
+                data-hover-src=sect.nav.hover
+                alt=sect.title.text + ' ' + sect.sub.text).nav-link-icon
+              img(src=sect.nav.image alt=sect.nav.text).nav-link-title
+        
+        #social-links.nav-links
+          each social in socials
+            - var link = social.link
+            - var target = (/^mailto/.test(link)) ? '' : '_blank'
+            a(href=link target=target title=social.name).social-link
+              img(src=social.icon alt=social.name).social-link-icon
+              
     .sections
       each sect in sections
         +section(sect)
     
-    footer#footer
-      #social-links-container
-        #social-links
-          each social in socials
-            - var link = social.link
-            - var target = (/^http/.test(link)) ? '_blank' : ''
-            a(href=link target=target).social-link
-              img(src=social.icon alt=social.name).social-link-icon
+    footer#footer.container
+      p#copyright.footer-text Copyright 2016 by Ranjani Chakraborty
+      p#built-by.footer-text
+        span= 'Built by '
+        a(href='http://cousins.io') Mike Cousins
     
     script(src='bundle.js')

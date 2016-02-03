@@ -10,13 +10,14 @@ var transitionEndEvent = require('transitionend-property')
 var rafScroll = require('./raf-scroll')
 var cssFade = require('./css-fade')
 var nav = require('./nav')
-var navHover = require('./nav-hover')
-var social = require('./social')
+var stories = require('./stories')
+var videos = require('./videos')
+var figure = require('./figure')
 
 domready(function() {
   anchorScroll.init({
     updateUrl: true,
-    offset: 0,
+    offset: -100,
     ease: 'linear',
     duration: 300,
     selector: "a[href*='#']"
@@ -28,7 +29,9 @@ domready(function() {
 
   nav.init(window, rafScroll, cssFade)
 
-  navHover.init(window)
+  stories.init(window, cssFade)
 
-  social.init(window, rafScroll, cssFade)
+  videos.init(window)
+
+  figure.init(window)
 })
