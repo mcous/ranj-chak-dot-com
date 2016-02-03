@@ -12,7 +12,7 @@
     "clean": "make clean",
     "test": "mocha",
     "posttest": "lint",
-    "postversion": "gh-pages -d public"
+    "postversion": "npm run clean && npm run build && gh-pages -d public"
   },
   "repository": {
     "type": "git",
@@ -27,6 +27,7 @@
   ],
   "author": "Mike Cousins <mike@cousins.io> (http://cousins.io)",
   "license": "ISC",
+  "private": true,
   "devDependencies": {
     "chai": "^3.4.1",
     "connect-livereload": "^0.5.4",
