@@ -1,0 +1,89 @@
+/***************************/
+/* generic section styling */
+/***************************/
+
+.sections {
+  width: 100%;
+}
+
+.section {
+  /*padding-top: 3%;*/
+  /*padding-top: 2rem;*/
+  width: 100%;
+}
+
+.section-banner {
+  width: 100%;
+  margin: 0;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.section-banner-item {
+  display: inline-block;
+  /*height: 7rem;*/
+}
+
+.section-banner-image {
+  width: 100%;
+}
+
+.section-story-list {
+  lost-utility: clearfix;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  overflow-x: auto;
+  white-space: nowrap;
+  font-size: 0;
+  /*lost-align: center;*/
+}
+
+.story-list-item {
+  /*lost-column: 1/3 3 0;*/
+  width: 90%;
+  display: inline-block;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.story-list-item-link {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 14rem;
+  /*height: 16rem;*/
+  white-space: normal;
+}
+
+.story-text {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  padding: 0.5rem;
+  margin: 0;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.story-title-container {
+  bottom: 0;
+  height: 4rem;
+
+  & .story-title {
+    position: absolute;
+    margin: 0;
+    width: 90%;
+    left: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    font-size: 1.2rem;
+  }
+}
+
+.story-blurb {
+  font-size: 1rem;
+  top: 0;
+}

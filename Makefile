@@ -4,6 +4,7 @@ OUT_DIR := public
 SCRIPT_DIR := src/script
 STYLE_DIR := src/style
 TEMPLATE_DIR := src/template
+IMAGE_DIR:= src/img
 
 CONTENT := src/content.json
 
@@ -18,6 +19,9 @@ STYLE_OUT := $(OUT_DIR)/bundle.css
 TEMPLATE_ENTRY := $(TEMPLATE_DIR)/index.jade
 TEMPLATE_SRC := $(TEMPLATE_DIR)/*.jade
 TEMPLATE_OUT := $(OUT_DIR)/index.html
+
+IMAGE_SRC := $(IMAGE_DIR)/*
+IMAGE_OUT := $(patsubst %,$(OUT_DIR)/%,$(IMAGE_SRC))
 
 JADE = node_modules/.bin/jade
 POSTCSS = node_modules/.bin/postcss

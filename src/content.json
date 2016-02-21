@@ -1,9 +1,9 @@
 {
   "breaks": {
-    "small": "400px",
-    "medium": "600px",
-    "large": "800px",
-    "xlarge": "1000px"
+    "smallToMedium": "600px",
+    "mediumToLarge": "800px",
+    "largeToXLarge": "1000px",
+    "xLarge": "1200px"
   },
   "title": {
     "text": "Hi, I'm Ranjani",
@@ -13,10 +13,10 @@
     "text": "Check out my work",
     "image": "img/subtitle.png"
   },
-  "hero": {
-    "mp4": "video/hero-reel.mp4",
-    "webm": "video/hero-reel.webm",
-    "fallback": "img/hero-fallback.jpg"
+  "reel": {
+    "vimeoId": "154909873",
+    "mp4": "video/ranj-chak-reel.mp4",
+    "webm": "video/ranj-chak-reel.webm"
   },
   "heroSub": {
     "text": "Check out my work",

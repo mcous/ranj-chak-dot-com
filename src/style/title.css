@@ -1,0 +1,42 @@
+/*****************/
+/* title styling */
+/*****************/
+
+#title {
+  line-height: 0;
+  margin-top: 2rem;
+  margin-bottom: 0%;
+  lost-center: 90%;
+
+  @media (min-width: map(breaks, smallToMedium)) {
+    lost-center: 80%;
+  }
+
+  @media (min-width: map(breaks, mediumToLarge)) {
+    lost-center: 70%;
+  }
+
+  @media (min-width: map(breaks, largeToXLarge)) {
+    lost-center: 60%;
+  }
+
+  @media (min-width: map(breaks, xlarge)) {
+    lost-center: 50%;
+  }
+}
+
+#subtitle {
+  lost-center: 70%;
+
+  @media (min-width: map(breaks, smallToMedium)) {
+    lost-center: 50%;
+  }
+
+  @media (min-width: map(breaks, mediumToLarge)) {
+    lost-center: 35%;
+  }
+}
+
+.title-image {
+  width: 100%;
+}

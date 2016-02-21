@@ -11,18 +11,23 @@ html(lang='en')
     title ranj chak dot com
     
   body
-    #hero
-      video(loop autoplay)#hero-video
-        source(src=hero.mp4 type="video/mp4")
-        source(src=hero.webm type="video/webm")
-    
-    #title-container
-      h1#title
-        img(src=title.image alt=title.text).title-image
-        #subtitle  
-          img(src=subtitle.image alt=subtitle.text).title-image
+    h1#title
+      img(src=title.image alt=title.text).title-image
+      #subtitle  
+        img(src=subtitle.image alt=subtitle.text).title-image
 
-    #nav-container.container
+    #reel-container
+      iframe#reel(
+        src='//player.vimeo.com/video/' + reel.vimeoId
+        frameborder="0"
+        badge='0' byline='0' portrait='0' title='0'
+        webkitallowfullscreen mozallowfullscreen allowfullscreen)
+
+      //- video(controls)#reel
+      //-   source(src=reel.mp4 type="video/mp4")
+      //-   source(src=reel.webm type="video/webm")
+
+    #nav-container
       nav#nav
         #page-links.nav-links
           each sect in sections
@@ -44,10 +49,9 @@ html(lang='en')
       each sect in sections
         +section(sect)
     
-    footer#footer.container
+    footer#footer
       p#copyright.footer-text Copyright 2016 by Ranjani Chakraborty
       p#built-by.footer-text
-        span= 'Built by '
-        a(href='http://cousins.io') Mike Cousins
+        a(href='http://cousins.io' target='_blank') Built by Mike Cousins
     
     script(src='bundle.js')
