@@ -1,0 +1,19 @@
+include ./sections
+
+#about.section
+  - var content = sectionContent.about
+  - var figure = content.figure
+  - var figureDefault = figure.default
+  - var diagram = content.diagram
+
+  img(src=figure[figureDefault] alt=figureDefault)#about-figure
+
+  #about-words  
+    each paragraph in content.blurb
+      p.about-blurb= paragraph
+      
+    p.about-blurb
+      = diagram.blurb
+      a(href=diagram.image target='_blank')#about-diagram-link= ' ' + diagram.text
+
+  

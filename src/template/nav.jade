@@ -1,0 +1,23 @@
+mixin navLink(id, nav)
+  a(href='#' + id title=nav.title).nav-link
+    img(
+      src=nav.icon
+      data-hover-src=nav.hover
+      alt=nav.title).nav-link-icon
+    img(src=nav.image alt=nav.text).nav-link-title
+
+mixin socialLink(name, icon, link)
+  - var target = (/^mailto/.test(link)) ? '' : '_blank'
+  a(href=link target=target title=name).social-link
+    img(src=icon alt=name).social-link-icon
+
+#nav-container.container
+  nav#nav
+    #page-links.nav-links
+      +navLink('film', film.nav)
+      +navLink('writing', writing.nav)
+      +navLink('about', about.nav)
+    
+    #social-links.nav-links
+      each social in socials
+        +socialLink(social.name, social.icon, social.link)

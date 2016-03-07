@@ -1,10 +1,12 @@
 # ranjchak dot com make file
 
 OUT_DIR := public
-SCRIPT_DIR := src/script
-STYLE_DIR := src/style
-TEMPLATE_DIR := src/template
-IMAGE_DIR:= src/img
+SOURCE_DIR := src
+SCRIPT_DIR := $(SOURCE_DIR)/script
+STYLE_DIR := $(SOURCE_DIR)/style
+TEMPLATE_DIR := $(SOURCE_DIR)/template
+IMAGE_DIR:= $(SOURCE_DIR)/img
+IMAGE_OUT_DIR := $(OUT_DIR)/img
 
 CONTENT := src/content.json
 
@@ -20,13 +22,14 @@ TEMPLATE_ENTRY := $(TEMPLATE_DIR)/index.jade
 TEMPLATE_SRC := $(TEMPLATE_DIR)/*.jade
 TEMPLATE_OUT := $(OUT_DIR)/index.html
 
-IMAGE_SRC := $(IMAGE_DIR)/*
-IMAGE_OUT := $(patsubst %,$(OUT_DIR)/%,$(IMAGE_SRC))
+IMAGE_SRC := $(shell find $(IMAGE_DIR) -name '*.png' -o -name '*.jpg')
+IMAGE_OUT := $(patsubst $(IMAGE_DIR)/%, $(IMAGE_OUT_DIR)/%, $(IMAGE_SRC))
 
 JADE = node_modules/.bin/jade
 POSTCSS = node_modules/.bin/postcss
 BROWSERIFY = node_modules/.bin/browserify
 WATCHIFY = node_modules/.bin/watchify
+IMAGEMIN = node_modules/.bin/imagemin
 ONCHANGE = node_modules/.bin/onchange
 
 JADE_OPTS := -p $(TEMPLATE_ENTRY) -O $(CONTENT) < $(TEMPLATE_ENTRY) > $(TEMPLATE_OUT)
@@ -35,10 +38,10 @@ BROWSERIFY_OPTS := $(SCRIPT_ENTRY) -o $(SCRIPT_OUT)
 
 .PHONY: all clean watch
 
-all: $(TEMPLATE_OUT) $(STYLE_OUT) $(SCRIPT_OUT)
+all: $(TEMPLATE_OUT) $(STYLE_OUT) $(SCRIPT_OUT) $(IMAGE_OUT)
 
 clean:
-	rm -rf $(TEMPLATE_OUT) $(STYLE_OUT) $(SCRIPT_OUT)
+	rm -rf $(TEMPLATE_OUT) $(STYLE_OUT) $(SCRIPT_OUT) $(OUT_DIR)/img/*
 
 watch:
 	$(ONCHANGE) $(TEMPLATE_SRC) $(CONTENT) -- make $(TEMPLATE_OUT) &
@@ -53,3 +56,7 @@ $(STYLE_OUT): $(STYLE_SRC) $(CONTENT)
 
 $(SCRIPT_OUT): $(SCRIPT_SRC) $(CONTENT)
 	$(BROWSERIFY) $(BROWSERIFY_OPTS)
+
+$(IMAGE_OUT_DIR)/%: $(IMAGE_DIR)/%
+	mkdir -p $(@D)
+	$(IMAGEMIN) $< > $@

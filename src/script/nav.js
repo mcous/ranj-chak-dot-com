@@ -66,7 +66,7 @@ module.exports = {
     var navLinks = container.querySelectorAll('.nav-link')
 
     // change position on scroll
-    initNavScroll(container, scroll, fade)
+    // initNavScroll(container, scroll, fade)
 
     // change icon on hover
     for (var i = 0; i < navLinks.length; i++) {

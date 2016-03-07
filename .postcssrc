@@ -1,14 +1,7 @@
 module.exports = {
   use: [
     'postcss-import',
-    'postcss-map',
-    'postcss-nesting',
+    'postcss-cssnext',
     'lost'
-  ],
-  'postcss-map': {
-    maps: ['src/content.json']
-  },
-  'postcss-simple-vars': {
-    silent: true
-  }
+  ]
 }

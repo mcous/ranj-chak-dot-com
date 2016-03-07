@@ -18,6 +18,8 @@ h1, h2, h3, h4, h5, h6 {
 /* normalize */
 /*************/
 
+@import ./breaks.css;
+
 * {
   box-sizing: border-box;
   color: black;
@@ -33,6 +35,11 @@ body {
 
 a {
   text-decoration: none;
+  color: #06c;
+
+  &:visited {
+    color: #639;
+  }
 }
 
 .is-faded-out {
@@ -49,6 +56,10 @@ a {
   display: none;
 }
 
+.container, .section {
+  border-bottom: 1px solid grey;
+}
+
 @import ./title.css;
 
 @import ./reel.css;
@@ -57,139 +68,35 @@ a {
 
 @import ./section.css;
 
-/************************/
-/* film section styling */
-/************************/
+@import ./about.css;
 
-#film {
-  background-color: rgba(255, 255, 255, 0.9);
-}
-
-#film-modal {
-  position: fixed;
-  z-index: 50;
-  left: 0;
-  top: 0;
-  padding: 5%;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7)
-}
-
-#film-modal-container {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-#film-modal-close-button {
-  position: absolute;
-  border: 0;
-  border-radius: 0.25rem;
-  padding: 0;
-  top: 0;
-  right: 0;
-  transform: translate(50%, -50%);
-  width: 2rem;
-  height: 2rem;
-  cursor: pointer;
-  background-color: rgba(255, 255, 255, 0.9);
-  background-image: url(img/close.png);
-  background-position: center;
-  background-size: contain;
-  background-repeat: 0;
-}
-
-#film-modal-embed {
-  width: 100%;
-  height: 100%;
-}
-
-/***************************/
-/* writing section styling */
-/***************************/
-
-#writing {
-  background-color: rgba(159, 159, 173, 0.9);
-}
-
-/*************************/
-/* about section styling */
-/*************************/
-
-#about {
-  background-color: rgba(194, 201, 209, 0.9);
-  lost-utility: clearfix;
-  width: 100%;
-}
-
-.about-item {
-  lost-center: 95%;
-  /*lost-center: 70%;*/
-}
-
-.about-blurb {
-  font-size: 1.2rem;
-}
-
-#about-words {
-  background-color: rgba(255, 255, 255, 0.5);
-  border-radius: 1rem;
-  padding: 2rem;
-  margin-top: 2rem;
-}
-
-#about-figure-header {
-  width: 100%;
-  padding: 0 20%;
-  /*padding: 0 32%;*/
-}
-
-#about-figure-image {
-  width: 100%;
-
-  /*width: 50%;*/
-  /*margin: 0 25%;*/
-}
-
-#about-diagram {
-  width: 100%;
-
-  padding: 1rem 0;
-  /*padding: 3rem;*/
-}
-
-.about-blurb {
-  &:first-child {
-    margin-top: 0;
-  }
-
-  &:last-child {
-    margin-bottom: 0;
-  }
-}
+@import ./modal.css;
 
 /******************/
 /* footer styling */
 /******************/
 
 #footer {
-  lost-utility: clearfix;
-  background-color: inherit;
+  lost-center: 95%;
   text-align: center;
-  padding: 0.5rem 0;
+  padding: 1rem 0;
 }
 
 .footer-text {
   display: inline-block;
   margin: 0.25rem;
-  /*margin: 1rem 1rem;*/
+
+  @media (--small-view) {
+    padding: 0.25rem;
+  }
 }
 
-/*#copyright {
-  float: left;
-}
+@media (--small-view) {
+  #copyright {
+    float: left;
+  }
 
-#built-by {
-  float: right;
-}*/
+  #built-by {
+    float: right;
+  }
+}

@@ -3,7 +3,13 @@
 
 var content = require('../content.json').sectionContent.about.figure
 
+var SWITCH_INTERVAL_MS = 1000
+
 var figure
+var current = content.default
+var figureNames = [current].concat(content.areas.map(function(area) {
+  return area.id
+}))
 
 var checkMousePosition = function(x, y) {
   var imageBox = figure.getBoundingClientRect()
@@ -16,14 +22,25 @@ var checkMousePosition = function(x, y) {
     return this.id
   }
 
-  return content.default
+  return current
+}
+
+var setFigure = function(imageName) {
+  var newSrc = content[imageName]
+
+  if (figure.src !== newSrc) {
+    figure.src = newSrc
+    figure.alt = imageName
+  }
 }
 
 module.exports = {
   init: function(root) {
     var document = root.document
-    figure = document.getElementById('about-figure-image')
-    // var figureContainer = document.getElementById('about-figure-image-container')
+    var switching = true;
+
+    figure = document.getElementById('about-figure')
+
     // grab the boxes
     var boxes = content.areas.map(function(area) {
       // DEBUG
@@ -39,24 +56,30 @@ module.exports = {
     })
 
     figure.addEventListener('mousemove', function(event) {
-      var imageName = content.default
+      var imageName = current
       var index = 0
+      switching = false
 
-      while ((imageName === content.default) && (index < boxes.length)) {
+      while ((imageName === current) && (index < boxes.length)) {
         var check = boxes[index++]
         imageName = check(event.clientX, event.clientY)
       }
 
-      var newSrc = content[imageName]
-      if (figure.src !== newSrc) {
-        figure.src = newSrc
-        figure.alt = imageName
-      }
+      setFigure(imageName)
     })
 
     figure.addEventListener('mouseout', function() {
-      figure.src = content[content.default]
-      figure.alt = content.default
+      switching = true
     })
+
+    // switch figures on a 1 second delay
+    setInterval(function() {
+      if (switching) {
+        var currentIndex = figureNames.indexOf(current)
+        var nextIndex = (++currentIndex < figureNames.length) ? currentIndex : 0
+        current = figureNames[nextIndex]
+        setFigure(current)
+      }
+    }, SWITCH_INTERVAL_MS)
   }
 }

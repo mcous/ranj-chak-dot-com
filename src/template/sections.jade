@@ -1,48 +1,18 @@
-mixin section(params)
-  - var id = params.id
-  - var title = params.title
-  - var banner = params.banner
-  - var sub = params.sub
-  - var bannerTitleImg = params.bannerTitle
-  - var bannerSubImg = params.bannerSub
-  - var content = sectionContent[id]
+//- section mixins
+
+mixin sectionBanner(image, text)
+  h2.section-banner
+    img(src=image alt=text).section-banner-image
   
-  section(id=id).section.container
-    h2.section-banner
-      img(src=banner.image alt=banner.text).section-banner-item.section-banner-image
-      //- img(src=title.image alt=title.text).section-banner-item.section-banner-title
-      //- img(src=sub.image alt=sub.text).section-banner-item.section-banner-sub
-
-    case id
-      when 'film'
-        ul.section-story-list
-          each video in content.videos
-            - var link = 'https://vimeo.com/' + video.vimeoId
-            li(data-bg=video.thumbnail).story-list-item
-              a(href=link target="_blank" data-vimeo=video.vimeoId).story-list-item-link
-                .story-title-container.story-text
-                  h3.story-title= video.name
-        
-      when 'writing'    
-        ul.section-story-list
-          each article in content.articles
-            li(data-bg=article.image).story-list-item
-              a(href=article.link target="_blank").story-list-item-link
-                .story-title-container.story-text
-                  h3.story-title= article.name
-                p.story-blurb.story-text= article.blurb
-      
-      when 'about'
-        - var figure = content.figure
-        - var figureDefault = figure.default
-        .about-container
-          .about-item
-            img(src=figure.header.image alt=figure.header.text)#about-figure-header
-            img(src=figure[figureDefault] alt=figureDefault)#about-figure-image
-          
-          #about-words.about-item
-            each paragraph in content.blurb
-              p.about-blurb= paragraph
-
-          .about-item
-            img(src=content.diagram)#about-diagram
+mixin sectionStoryList(banner, stories)
+  ul.section-story-list
+    li.story-list-item
+      +sectionBanner(banner.image, banner.text)
+    
+    each story in stories
+      - var background = 'url(' + story.thumbnail + ')'
+      li(style='background-image: ' + background).story-list-item
+        a(href=story.link target='_blank').story-link
+          h3.story-title.story-text= story.name
+          if story.blurb
+            p.story-blurb.story-text= story.blurb
