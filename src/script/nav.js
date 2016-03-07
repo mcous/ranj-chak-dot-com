@@ -39,7 +39,8 @@ var initNavScroll = function(container, scroll, fade) {
 
       fade.out(nav, function() {
         container.style.height = height + 'px'
-        addClass(nav, 'is-top-nav')
+        addClass(nav, 'is-side-nav')
+
         fade.in(nav, function() {
           isTransitioning = false
         })
@@ -50,7 +51,8 @@ var initNavScroll = function(container, scroll, fade) {
       isInView = true
       fade.out(nav, function() {
         container.style.height = 'auto'
-        removeClass(nav, 'is-top-nav')
+        removeClass(nav, 'is-side-nav')
+
         fade.in(nav, function() {
           isTransitioning = false
         })
