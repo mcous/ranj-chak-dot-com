@@ -106,8 +106,13 @@
   }
 
   @media (--xlarge-view) {
-     
-  }  
+    height: 16rem;
+
+    &:nth-child(4),
+    &:nth-child(8) {
+      height: 34rem;
+    }
+  }
 }
 
 .story-text {
