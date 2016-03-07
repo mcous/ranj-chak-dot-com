@@ -14,6 +14,10 @@
   @media (--large-view) {
     lost-center: 60%;
   }
+
+  @media (--xlarge-view) {
+    lost-center: 50%;
+  }
 }
 
 #reel-embed-wrapper {

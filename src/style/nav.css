@@ -13,7 +13,7 @@
   lost-center: 95%;
 
   @media (--xlarge-view) {
-    lost-center: 85%;
+    lost-center: 75%;
   }
 
   z-index: 10;

@@ -10,6 +10,10 @@
   @media (--large-view) {
     lost-center: 75%;
   }
+
+  @media (--xlarge-view) {
+    lost-center: 60%;
+  }
 }
 
 .section-banner {
