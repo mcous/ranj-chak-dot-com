@@ -76,7 +76,7 @@
     clear: both;
   }
   }
-@media (min-width: 1400px) {
+@media (min-width: 1600px) {
   #title{
     *zoom: 1;
     max-width: 30%;
@@ -142,7 +142,7 @@
     clear: both;
   }
   }
-@media (min-width: 1400px) {
+@media (min-width: 1600px) {
   #subtitle{
     *zoom: 1;
     max-width: 15%;
@@ -220,6 +220,23 @@
     clear: both;
   }
   }
+@media (min-width: 1600px) {
+  #reel-container{
+    *zoom: 1;
+    max-width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #reel-container:before{
+    content: '';
+    display: table;
+  }
+  #reel-container:after{
+    content: '';
+    display: table;
+    clear: both;
+  }
+  }
 #reel-embed-wrapper {
   position: relative;
   padding-bottom: 56.25%; /* 16:9 */
@@ -280,10 +297,10 @@
   display: table;
   clear: both;
 }
-@media (min-width: 1400px) {
+@media (min-width: 1600px) {
   #nav{
     *zoom: 1;
-    max-width: 85%;
+    max-width: 75%;
     margin-left: auto;
     margin-right: auto;
   }
@@ -433,7 +450,7 @@
     clear: both;
   }
   }
-@media (min-width: 1400px) {
+@media (min-width: 1600px) {
   #social-links{
     *zoom: 1;
     max-width: 40%;
@@ -592,13 +609,30 @@
     clear: both;
   }
   }
+@media (min-width: 1600px) {
+  .section{
+    *zoom: 1;
+    max-width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .section:before{
+    content: '';
+    display: table;
+  }
+  .section:after{
+    content: '';
+    display: table;
+    clear: both;
+  }
+  }
 .section-banner {
   width: 100%;
   margin: 0;
   line-height: 0;
 }
 .section-banner-image {
-  width: 100%;
+  width: auto;
 }
 .section-banner-item {
   display: inline-block;
@@ -689,6 +723,15 @@
     width: calc(2 / 3 * 100% - 0.66667rem);
   }
   }
+@media (min-width: 1600px) {
+  .story-list-item{
+    height: 16rem;
+  }
+  .story-list-item:nth-child(4),
+    .story-list-item:nth-child(8){
+    height: 34rem;
+  }
+  }
 .story-text {
   color: white;
   text-align: center;
@@ -751,7 +794,7 @@
     font-size: 1.1rem;
   }
   }
-@media (min-width: 1400px) {
+@media (min-width: 1600px) {
   .story-title{
     font-size: 1.4rem;
   }
@@ -762,7 +805,7 @@
   font-size: 14.4px;
   font-size: 0.9rem
 }
-@media (min-width: 1400px) {
+@media (min-width: 1600px) {
   .story-blurb{
     font-size: 1rem;
   }
