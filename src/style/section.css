@@ -19,7 +19,7 @@
 }
 
 .section-banner-image {
-  width: 100%;
+  width: auto;
 }
 
 .section-banner-item {
@@ -104,6 +104,10 @@
       width: calc(2 / 3 * 100% - (2rem / 3));
     }
   }
+
+  @media (--xlarge-view) {
+     
+  }  
 }
 
 .story-text {
