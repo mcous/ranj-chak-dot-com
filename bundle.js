@@ -151,35 +151,7 @@ module.exports = {
   destroy: destroy
 };
 
-},{"closest":9,"object-assign":8,"scroll-to-element":20}],8:[function(require,module,exports){
-'use strict';
-
-function ToObject(val) {
-	if (val == null) {
-		throw new TypeError('Object.assign cannot be called with null or undefined');
-	}
-
-	return Object(val);
-}
-
-module.exports = Object.assign || function (target, source) {
-	var from;
-	var keys;
-	var to = ToObject(target);
-
-	for (var s = 1; s < arguments.length; s++) {
-		from = arguments[s];
-		keys = Object.keys(Object(from));
-
-		for (var i = 0; i < keys.length; i++) {
-			to[keys[i]] = from[keys[i]];
-		}
-	}
-
-	return to;
-};
-
-},{}],9:[function(require,module,exports){
+},{"closest":8,"object-assign":18,"scroll-to-element":20}],8:[function(require,module,exports){
 var matches = require('matches-selector')
 
 module.exports = function (element, selector, checkYoSelf) {
@@ -191,7 +163,7 @@ module.exports = function (element, selector, checkYoSelf) {
   }
 }
 
-},{"matches-selector":18}],10:[function(require,module,exports){
+},{"matches-selector":17}],9:[function(require,module,exports){
 /**
  * Module dependencies.
  */
@@ -250,7 +222,7 @@ function clone(obj){
   }
 }
 
-},{"component-type":14,"type":14}],11:[function(require,module,exports){
+},{"component-type":13,"type":13}],10:[function(require,module,exports){
 
 /**
  * Expose `Emitter`.
@@ -413,7 +385,7 @@ Emitter.prototype.hasListeners = function(event){
   return !! this.listeners(event).length;
 };
 
-},{}],12:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 /**
  * Expose `requestAnimationFrame()`.
  */
@@ -449,7 +421,7 @@ exports.cancel = function(id){
   cancel.call(window, id);
 };
 
-},{}],13:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 
 /**
  * Module dependencies.
@@ -628,7 +600,7 @@ Tween.prototype.update = function(fn){
   this._update = fn;
   return this;
 };
-},{"clone":10,"ease":16,"emitter":11,"type":14}],14:[function(require,module,exports){
+},{"clone":9,"ease":15,"emitter":10,"type":13}],13:[function(require,module,exports){
 /**
  * toString ref.
  */
@@ -664,7 +636,7 @@ module.exports = function(val){
   return typeof val;
 };
 
-},{}],15:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 /*!
   * domready (c) Dustin Diaz 2014 - License MIT
   */
@@ -696,7 +668,7 @@ module.exports = function(val){
 
 });
 
-},{}],16:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 
 // easing functions from "Tween.js"
 
@@ -868,7 +840,7 @@ exports['in-bounce'] = exports.inBounce;
 exports['out-bounce'] = exports.outBounce;
 exports['in-out-bounce'] = exports.inOutBounce;
 
-},{}],17:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 /**
  * Module dependencies.
  */
@@ -934,7 +906,7 @@ fade['in'] = function (el, duration, callback) {
   fade(el, 1, duration, callback);
 };
 
-},{"prefixed":19}],18:[function(require,module,exports){
+},{"prefixed":19}],17:[function(require,module,exports){
 
 /**
  * Element prototype.
@@ -975,6 +947,34 @@ function match(el, selector) {
   }
   return false;
 }
+},{}],18:[function(require,module,exports){
+'use strict';
+
+function ToObject(val) {
+	if (val == null) {
+		throw new TypeError('Object.assign cannot be called with null or undefined');
+	}
+
+	return Object(val);
+}
+
+module.exports = Object.assign || function (target, source) {
+	var from;
+	var keys;
+	var to = ToObject(target);
+
+	for (var s = 1; s < arguments.length; s++) {
+		from = arguments[s];
+		keys = Object.keys(Object(from));
+
+		for (var i = 0; i < keys.length; i++) {
+			to[keys[i]] = from[keys[i]];
+		}
+	}
+
+	return to;
+};
+
 },{}],19:[function(require,module,exports){
 /**
  * Supported prefixes.
@@ -1025,8 +1025,13 @@ prefixed.get = function (style, attribute) {
 var scroll = require('scroll-to');
 
 function calculateScrollOffset(elem, additionalOffset, alignment) {
+  var body = document.body,
+      html = document.documentElement;
+
   var elemRect = elem.getBoundingClientRect();
-  var clientHeight = document.documentElement.clientHeight;
+  var clientHeight = html.clientHeight;
+  var documentHeight = Math.max( body.scrollHeight, body.offsetHeight, 
+                                 html.clientHeight, html.scrollHeight, html.offsetHeight );
 
   additionalOffset = additionalOffset || 0;
 
@@ -1039,7 +1044,9 @@ function calculateScrollOffset(elem, additionalOffset, alignment) {
     scrollPosition = elemRect.top;
   }
 
-  return scrollPosition + additionalOffset + window.pageYOffset;
+  var maxScrollPosition = documentHeight - clientHeight;
+  return Math.min(scrollPosition + additionalOffset + window.pageYOffset,
+                  maxScrollPosition);
 }
 
 module.exports = function (elem, options) {
@@ -1116,7 +1123,7 @@ function scroll() {
   return { top: y, left: x };
 }
 
-},{"raf":12,"tween":13}],22:[function(require,module,exports){
+},{"raf":11,"tween":12}],22:[function(require,module,exports){
 
 /**
  * get the window's scrolltop.
@@ -1159,12 +1166,6 @@ for (var transition in map) {
 
 },{}],24:[function(require,module,exports){
 module.exports={
-  "breaks": {
-    "small": "400px",
-    "medium": "600px",
-    "large": "800px",
-    "xlarge": "1000px"
-  },
   "title": {
     "text": "Hi, I'm Ranjani",
     "image": "img/title.png"
@@ -1173,145 +1174,112 @@ module.exports={
     "text": "Check out my work",
     "image": "img/subtitle.png"
   },
-  "hero": {
-    "mp4": "video/hero-reel.mp4",
-    "webm": "video/hero-reel.webm",
-    "fallback": "img/hero-fallback.jpg"
+  "reel": {
+    "vimeo": "154909873"
   },
-  "heroSub": {
-    "text": "Check out my work",
-    "image": "img/hero-sub.png"
-  },
-  "sections": [
-    {
-      "id": "film",
-      "banner": {
-        "text": "moving pictures",
-        "image": "img/banner/film.png"
-      },
-      "title": {
-        "text": "moving",
-        "image": "img/film-title.png"
-      },
-      "sub": {
-        "text": "pictures",
-        "image": "img/film-sub.png"
-      },
-      "nav": {
-        "text": "a selection of videos I produced",
-        "title": "videos",
-        "image": "img/film-nav-title.png",
-        "icon": "img/film-nav-icon.png",
-        "hover": "img/film-nav-hover.png"
-      }
+  "film": {
+    "banner": {
+      "text": "moving pictures",
+      "image": "img/icon/film.png"
     },
-    {
-      "id": "writing",
-      "banner": {
-        "text": "words on the internet",
-        "image": "img/banner/writing.png"
-      },
-      "title": {
-        "text": "internet",
-        "image": "img/writing-title.png"
-      },
-      "sub": {
-        "text": "words",
-        "image": "img/writing-sub.png"
-      },
-      "nav": {
-        "text": "shockingly true stories I wrote",
-        "title": "writing",
-        "image": "img/writing-nav-title.png",
-        "icon": "img/writing-nav-icon.png",
-        "hover": "img/writing-nav-hover.png"
-      }
-    },
-    {
-      "id": "about",
-      "banner": {
-        "text": "about me",
-        "image": "img/banner/about.png"
-      },
-      "title": {
-        "text": "about",
-        "image": "img/about-title.png"
-      },
-      "sub": {
-        "text": "me",
-        "image": "img/about-sub.png"
-      },
-      "nav": {
-        "text": "hopefully relevant facts about me",
-        "title": "about me",
-        "image": "img/about-nav-title.png",
-        "icon": "img/about-nav-icon.png",
-        "hover": "img/about-nav-hover.png"
-      }
+    "nav": {
+      "text": "a selection of videos I produced",
+      "title": "videos",
+      "image": "img/title/film.png",
+      "icon": "img/icon/film.png",
+      "hover": "img/icon/film-hover.png"
     }
-  ],
+  },
+  "writing": {
+    "banner": {
+      "text": "words on the internet",
+      "image": "img/icon/writing.png"
+    },
+    "nav": {
+      "text": "shockingly true stories I wrote",
+      "title": "writing",
+      "image": "img/title/writing.png",
+      "icon": "img/icon/writing.png",
+      "hover": "img/icon/writing-hover.png"
+    }
+  },
+  "about": {
+    "nav": {
+      "text": "hopefully relevant facts about me",
+      "title": "about me",
+      "image": "img/title/about.png",
+      "icon": "img/icon/about.png",
+      "hover": "img/icon/about-hover.png"
+    }
+  },
   "sectionContent": {
     "film": {
       "videos": [
         {
           "name": "Million Dollar Blocks",
+          "blurb": "On some blocks, states pay $1 million a year to incarcerate residents, and the cost to families can also be crippling",
           "thumbnail": "img/video-thumb/million-dollar-blocks.jpg",
-          "vimeoId": "147783798"
+          "link": "https://vimeo.com/147783798"
         },
         {
           "name": "Transition At Twelve",
+          "blurb": "Dozens of children and teens have been treated through a trailblazing Dallas clinic",
           "thumbnail": "img/video-thumb/transition-at-twelve.jpg",
-          "vimeoId": "140197201"
+          "link": "https://vimeo.com/140197201"
         },
         {
           "name": "Behind the Screen",
+          "blurb": "In Reynosa, a Mexican border city, there are hundreds of assembly plants that feed global demand; but at what price?",
           "thumbnail": "img/video-thumb/behind-the-screen.jpg",
-          "vimeoId": "151824169"
+          "link": "https://vimeo.com/151824169"
         },
         {
           "name": "The Cost of a Gunshot",
+          "blurb": "More than 2,500 Chicagoans were shot in 2014, but what happens to the vast majority who survive?",
           "thumbnail": "img/video-thumb/cost-of-a-gunshot.jpg",
-          "vimeoId": "125630343"
+          "link": "https://vimeo.com/125630343"
         },
         {
           "name": "Nuclear Graveyard",
+          "blurb": "Self-described \"mad junkyard dog\" Patty Ameno has been on a mission to clean up her hometown's nuclear waste",
           "thumbnail": "img/video-thumb/nuclear-graveyard.jpg",
-          "vimeoId": "125630254"
+          "link": "https://vimeo.com/125630254"
         },
         {
           "name": "False Confessions",
+          "blurb": "Sundhe Moses spent 18 years in prison for a murder he confessed to but says he wasn’t guilty of",
           "thumbnail": "img/video-thumb/false-confessions.jpg",
-          "vimeoId": "125630456"
+          "link": "https://vimeo.com/125630456"
         },
         {
           "name": "Stop Telling Women to Smile",
+          "blurb": "One woman is battling street harassment by showing the world the faces of its victims",
           "thumbnail": "img/video-thumb/stop-telling-women-to-smile.jpg",
-          "vimeoId": "125628085"
+          "link": "https://vimeo.com/125628085"
         },
         {
           "name": "Dirty Coal",
+          "blurb": "The Moapa Band of Paiute Indians thought coal ash from a nearby plant was killing them off, so they fought back",
           "thumbnail": "img/video-thumb/dirty-coal.jpg",
-          "vimeoId": "125629931"
+          "link": "https://vimeo.com/125629931"
         },
         {
           "name": "Locked Up For Life",
+          "blurb": "After the U.S. Supreme Court struck down life without parole for child convicts, Adolfo Davis hoped for a second chance",
           "thumbnail": "img/video-thumb/locked-up-for-life.jpg",
-          "vimeoId": "125630149"
+          "link": "https://vimeo.com/125630149"
         },
         {
           "name": "Bank Deserts",
+          "blurb": "Across the US, bank branches are closing in low-income communities, leaving residents with few financial options",
           "thumbnail": "img/video-thumb/bank-deserts.jpg",
-          "vimeoId": "125630007"
-        },
-        {
-          "name": "Lobster Economics",
-          "thumbnail": "img/video-thumb/lobsters.jpg",
-          "vimeoId": "125628740"
+          "link": "https://vimeo.com/125630007"
         },
         {
           "name": "Driven",
+          "blurb": "Estaifan Shilaita has chosen a life in constant motion; once a boxing champ in Iran, he tells us what brought him behind the wheel of a Chicago taxi",
           "thumbnail": "img/video-thumb/driven.jpg",
-          "vimeoId": "125628151"
+          "link": "https://vimeo.com/125628151"
         }
       ]
     },
@@ -1321,109 +1289,103 @@ module.exports={
           "name": "For families of the incarcerated, conviction comes with a cost",
           "blurb": "On some blocks, states pay $1 million a year to incarcerate residents, and the cost to families can also be crippling",
           "link": "http://america.aljazeera.com/watch/shows/america-tonight/articles/2015/12/7/for-families-of-the-incarcerated-conviction-comes-with-a-cost.html",
-          "image": "img/story-thumb/million-dollar-blocks.jpg"
+          "thumbnail": "img/story-thumb/million-dollar-blocks.jpg"
         },
         {
           "name": "Transition at 12: Growing up transgender in Texas",
           "blurb": "Dozens of children and teens have been treated through a trailblazing Dallas clinic",
           "link": "http://america.aljazeera.com/watch/shows/america-tonight/articles/2015/9/20/transition-at-12-transgender-texas.html",
-          "image": "img/story-thumb/transition-at-twelve.jpg"
+          "thumbnail": "img/story-thumb/transition-at-twelve.jpg"
         },
         {
           "name": "The ignored injuries of Reynosa's factory workers",
           "blurb": "In Reynosa, a Mexican border city, there are hundreds of assembly plants that feed global demand; but at what price?",
           "link": "http://america.aljazeera.com/watch/shows/america-tonight/multimedia/2015/9/the-increasingly-serious-injuries-of-mexican-factory-workers.html",
-          "image": "img/story-thumb/reynosa-workers.jpg"
+          "thumbnail": "img/story-thumb/reynosa-workers.jpg"
         },
         {
           "name": "What it means to be a bullied transgender kid in Texas",
           "blurb": "How does the trans community move on after Houston’s rejection of ‘bathroom bill’?",
           "link": "http://america.aljazeera.com/watch/shows/america-tonight/articles/2015/11/10/bullied-transgender-kid-in-texas-bathroom-bill-lgbt.html",
-          "image": "img/story-thumb/trans-bullying.jpg"
+          "thumbnail": "img/story-thumb/trans-bullying.jpg"
         },
         {
           "name": "In Texas, trailer park fights mobile-home moguls for affordable housing",
           "blurb": "Trailer park residents in the Austin area fight to keep one of its last strongholds of affordable housing",
           "link": "http://america.aljazeera.com/watch/shows/america-tonight/articles/2015/10/28/trailer-parks-price-gouging-texas.html",
-          "image": "img/story-thumb/trailer-park.jpg"
+          "thumbnail": "img/story-thumb/trailer-park.jpg"
         },
         {
           "name": "How calling 911 can punish a domestic violence victim",
           "blurb": "In some cities, nuisance laws force domestic violence victims to decide between calling police and staying in their home",
           "link": "http://america.aljazeera.com/watch/shows/america-tonight/articles/2015/7/20/how-calling-911-can-punish-a-domestic-violence-victim.html",
-          "image": "img/story-thumb/domestic-violence.png"
+          "thumbnail": "img/story-thumb/domestic-violence.png"
         },
         {
           "name": "Parents with disabilities fight to keep their kids",
           "blurb": "Despite all the rights Americans with disabilities have gained in the last 25 years, the right to parent remains elusive",
           "link": "http://america.aljazeera.com/watch/shows/america-tonight/articles/2015/5/29/parents-disabilities-discrimination.html",
-          "image": "img/story-thumb/parents-with-disabilities.jpg"
+          "thumbnail": "img/story-thumb/parents-with-disabilities.jpg"
         },
         {
           "name": "Imprisoned at 14, Illinois inmate gets resentenced to life without parole",
           "blurb": "After the U.S. Supreme Court struck down life without parole for child convicts, Adolfo Davis hoped for a second chance",
           "link": "http://america.aljazeera.com/watch/shows/america-tonight/articles/2015/5/4/adolfo-davis-life-parole.html",
-          "image": "img/story-thumb/adolfo-davis.jpg"
+          "thumbnail": "img/story-thumb/adolfo-davis.jpg"
         },
         {
           "name": "Race and Ferguson’s City Council",
           "blurb": "Two candidates – one black, one white – in the country’s ‘biggest local election’ on the issues facing Ferguson",
           "link": "http://america.aljazeera.com/watch/shows/america-tonight/articles/2015/4/3/the-ferguson-swing-seat.html",
-          "image": "img/story-thumb/ferguson.jpg"
+          "thumbnail": "img/story-thumb/ferguson.jpg"
         },
         {
           "name": "Timeline: Pennsylvania 'junkyard dog' pushes to rid town of nuclear waste",
           "blurb": "Self-described \"mad junkyard dog\" Patty Ameno has been on a mission to clean up her hometown's nuclear waste",
           "link": "http://america.aljazeera.com/watch/shows/america-tonight/articles/2015/2/10/timeline-pennsylvania-junkyard-dog-pushes-to-rid-town-of-nuclear-waste.html",
-          "image": "img/story-thumb/pennsylvania-nukes.jpg"
+          "thumbnail": "img/story-thumb/pennsylvania-nukes.jpg"
         },
         {
           "name": "Black, young and unarmed: The case of Cameron Tillman",
           "blurb": "Six weeks after Michael Brown's death, a police officer killed a black teen in Louisiana with no explanation",
           "link": "http://america.aljazeera.com/watch/shows/america-tonight/articles/2014/12/6/black-young-and-unarmedthecaseofcamerontillman.html",
-          "image": "img/story-thumb/cameron-tillman.jpg"
+          "thumbnail": "img/story-thumb/cameron-tillman.jpg"
         },
         {
           "name": "Take back the streets: Fighting harassment with feminist street art",
           "blurb": "One woman is battling street harassment by showing the world the faces of its victims",
           "link": "http://america.aljazeera.com/watch/shows/america-tonight/articles/2014/10/30/stop-telling-womentosmiletakingonharassmentwithfeministstreetart.html",
-          "image": "img/story-thumb/stop-telling-women-to-smile.jpg"
+          "thumbnail": "img/story-thumb/stop-telling-women-to-smile.jpg"
         },
         {
           "name": "To save rural hospitals, a Republican mayor marches on Washington",
           "blurb": "On health care, N.C. Mayor Adam O'Neal went a different direction from most other Republicans – for about 275 miles",
           "link": "http://america.aljazeera.com/watch/shows/america-tonight/articles/2014/7/29/to-save-rural-hospitalsarepublicanmayormarchesonwashington.html",
-          "image": "img/story-thumb/mayor-march.jpg"
-        },
-        {
-          "name": "Making a withdrawal: Banks shut branches in poorer communities",
-          "blurb": "Across the US, bank branches are closing in low-income communities, leaving residents with few financial options",
-          "link": "http://america.aljazeera.com/watch/shows/america-tonight/articles/2014/6/24/banking-withdrawalfinancialinstitutionsclosebranchesinpoorerarea.html",
-          "image": "img/story-thumb/bank-deserts.jpg"
+          "thumbnail": "img/story-thumb/mayor-march.jpg"
         },
         {
           "name": "Why would someone confess to a crime he didn’t commit?",
           "blurb": "Sundhe Moses spent 18 years in prison for a murder he confessed to but says he wasn’t guilty of",
           "link": "http://america.aljazeera.com/watch/shows/america-tonight/articles/2014/5/21/why-would-someoneconfesstoacrimehedidntcommit.html",
-          "image": "img/story-thumb/false-confessions.jpg"
+          "thumbnail": "img/story-thumb/false-confessions.jpg"
         },
         {
           "name": "Elite NYC schools wrestle with drop in black, Hispanic students",
           "blurb": "With black and Hispanic enrollment at record lows, New York City considers changing its exam-based admissions",
           "link": "http://america.aljazeera.com/watch/shows/america-tonight/articles/2014/11/24/nyc-schools-blackhispanicasian.html",
-          "image": "img/story-thumb/elite-schools.jpg"
+          "thumbnail": "img/story-thumb/elite-schools.jpg"
         },
         {
           "name": "Is the University of Montana the ‘blueprint’ for sexual assault response?",
           "blurb": "Rape reports involving Montana football players led to a Justice Department overhaul of sexual assault policies",
           "link": "http://america.aljazeera.com/watch/shows/america-tonight/articles/2015/4/17/is-the-university-of-montana-the-blueprint-for-sexual-assault-response.html",
-          "image": "img/story-thumb/montana.jpg"
+          "thumbnail": "img/story-thumb/montana.jpg"
         },
         {
           "name": "Exclusive: My grandfather runs an Amish cult from prison",
           "blurb": "The son of two Bergholz Barbers speaks out for the first time about the insular Ohio community he says he escaped",
           "link": "http://america.aljazeera.com/watch/shows/america-tonight/articles/2014/10/28/ohio-amish-beardcuttingcult.html",
-          "image": "img/story-thumb/amish-beard-cutting.jpg"
+          "thumbnail": "img/story-thumb/amish-beard-cutting.jpg"
         }
       ]
     },
@@ -1451,10 +1413,6 @@ module.exports={
             "id": "texan"
           }
         ],
-        "header": {
-          "image": "img/figure/header.png",
-          "text": "I'm a"
-        },
         "default": "journalist",
         "journalist": "img/figure/journalist.png",
         "feminist": "img/figure/feminist.png",
@@ -1464,12 +1422,16 @@ module.exports={
         "texan": "img/figure/texan.png"
       },
       "blurb": [
-        "When I’m not busy drawing ridiculous cartoons of myself with six hands, I’m a Brooklyn based multimedia storyteller producing long form content for America Tonight on Al Jazeera America. I love a good story, and I’ll do nearly anything to tell it beautifully. My work has taken me everywhere from Chicago prisons, to Mexican border factories, to (probably still radioactive) nuclear sites in Pennsylvania.",
+        "Hello! My name is Ranjani Chakraborty, and I’m a Brooklyn-based video storyteller. I’m currently producing content for America Tonight, Al Jazeera America’s flagship newsmagazine show. My work focuses largely on social justice, criminal justice, and inequality - and how they all intersect. I love a good story, and I’ll do nearly anything to tell it beautifully.",
         "Prior to my time at AJAM, I was an associate producer with the NBC News Associates program in New York, where I contributed to Dateline, The Today Show, and Nightly News. During my time at 30 Rock, it’s important to note that Tina Fey once shook my hand.",
-        "I joined NBC after graduating from the Medill School of Journalism at Northwestern University - where I completed independent grant projects and international reporting in Johannesburg, South Africa; Pune, India; and Marrakesh, Morocco.",
-        "Want to get in touch? Choose your favorite contact method from the list of icons above. And for a more in-depth breakdown of the things I love, please observe the below diagram."
+        "I’m a Medill/Northwestern University alum, through which I’ve completed independent grant projects and international reporting in Johannesburg, South Africa; Pune, India; and Marrakesh, Morocco.",
+        "Want to say hi? Contact me using whichever is your favorite method from the icons above."
       ],
-      "diagram": "img/loves.png"
+      "diagram": {
+        "blurb": "Or feel like you really need to get to know me first? For a more in-depth breakdown of the things I love, I drew y’all",
+        "text": "a handy diagram.",
+        "image": "img/loves.png"
+      }
     }
   },
   "socials": [
@@ -1506,7 +1468,7 @@ module.exports={
     {
       "name": "resume",
       "icon": "img/social/resume.png",
-      "link": "ranj-chak-resume.pdf"
+      "link": "ranj-chak-cv.pdf"
     }
   ]
 }
@@ -1558,7 +1520,13 @@ module.exports = {
 
 var content = require('../content.json').sectionContent.about.figure
 
+var SWITCH_INTERVAL_MS = 1000
+
 var figure
+var current = content.default
+var figureNames = [current].concat(content.areas.map(function(area) {
+  return area.id
+}))
 
 var checkMousePosition = function(x, y) {
   var imageBox = figure.getBoundingClientRect()
@@ -1571,14 +1539,25 @@ var checkMousePosition = function(x, y) {
     return this.id
   }
 
-  return content.default
+  return current
+}
+
+var setFigure = function(imageName) {
+  var newSrc = content[imageName]
+
+  if (figure.src !== newSrc) {
+    figure.src = newSrc
+    figure.alt = imageName
+  }
 }
 
 module.exports = {
   init: function(root) {
     var document = root.document
-    figure = document.getElementById('about-figure-image')
-    // var figureContainer = document.getElementById('about-figure-image-container')
+    var switching = true;
+
+    figure = document.getElementById('about-figure')
+
     // grab the boxes
     var boxes = content.areas.map(function(area) {
       // DEBUG
@@ -1594,29 +1573,71 @@ module.exports = {
     })
 
     figure.addEventListener('mousemove', function(event) {
-      var imageName = content.default
+      var imageName = current
       var index = 0
+      switching = false
 
-      while ((imageName === content.default) && (index < boxes.length)) {
+      while ((imageName === current) && (index < boxes.length)) {
         var check = boxes[index++]
         imageName = check(event.clientX, event.clientY)
       }
 
-      var newSrc = content[imageName]
-      if (figure.src !== newSrc) {
-        figure.src = newSrc
-        figure.alt = imageName
-      }
+      setFigure(imageName)
     })
 
     figure.addEventListener('mouseout', function() {
-      figure.src = content[content.default]
-      figure.alt = content.default
+      switching = true
     })
+
+    // switch figures on a 1 second delay
+    setInterval(function() {
+      if (switching) {
+        var currentIndex = figureNames.indexOf(current)
+        var nextIndex = (++currentIndex < figureNames.length) ? currentIndex : 0
+        current = figureNames[nextIndex]
+        setFigure(current)
+      }
+    }, SWITCH_INTERVAL_MS)
   }
 }
 
 },{"../content.json":24}],27:[function(require,module,exports){
+// highjack links to images and show a modal instead
+'use strict'
+
+var removeClass = require('amp-remove-class')
+
+var modal = require('./modal')
+
+var handleImageLinkClick = function(modal, image, element) {
+  image.src = element.getAttribute('href')
+  removeClass(modal, 'is-hidden')
+}
+
+var initImageLink = function(modal, image, element) {
+  element.addEventListener('click', function(event) {
+    event.stopPropagation()
+    event.preventDefault()
+
+    handleImageLinkClick(modal, image, element)
+  })
+}
+
+module.exports = {
+  init: function initImageModal(root) {
+    var document = root.document
+    var imageLinks = document.querySelectorAll('a[href$=png]')
+
+    var image = document.createElement('img')
+    var imageModal = modal.create(document, image)
+
+    for (var i = 0; i < imageLinks.length; i++) {
+      initImageLink(imageModal, image, imageLinks[i])
+    }
+  }
+}
+
+},{"./modal":29,"amp-remove-class":5}],28:[function(require,module,exports){
 // entry point for ranjchak dot com application
 'use strict'
 
@@ -1629,14 +1650,14 @@ var transitionEndEvent = require('transitionend-property')
 var rafScroll = require('./raf-scroll')
 var cssFade = require('./css-fade')
 var nav = require('./nav')
-var stories = require('./stories')
 var videos = require('./videos')
 var figure = require('./figure')
+var imageModal = require('./image-modal')
 
 domready(function() {
   anchorScroll.init({
     updateUrl: true,
-    offset: -100,
+    offset: 0,
     ease: 'linear',
     duration: 300,
     selector: "a[href*='#']"
@@ -1648,14 +1669,64 @@ domready(function() {
 
   nav.init(window, rafScroll, cssFade)
 
-  stories.init(window, cssFade)
-
   videos.init(window)
 
   figure.init(window)
+
+  imageModal.init(window)
 })
 
-},{"./css-fade":25,"./figure":26,"./nav":28,"./raf-scroll":29,"./stories":30,"./videos":31,"anchor-scroll":7,"domready":15,"fade":17,"scrolltop":22,"transitionend-property":23}],28:[function(require,module,exports){
+},{"./css-fade":25,"./figure":26,"./image-modal":27,"./nav":30,"./raf-scroll":31,"./videos":32,"anchor-scroll":7,"domready":14,"fade":16,"scrolltop":22,"transitionend-property":23}],29:[function(require,module,exports){
+'use strict'
+
+var addClass = require('amp-add-class')
+
+module.exports = {
+  create: function createMode(document, content, postClose) {
+    var closeButton = document.createElement('button')
+    var modal = document.createElement('div')
+    var container = document.createElement('div')
+
+    addClass(modal, 'is-hidden')
+    addClass(modal, 'modal')
+    addClass(closeButton, 'modal-close-button')
+    addClass(container, 'modal-container')
+    addClass(content, 'modal-content')
+
+    container.appendChild(closeButton)
+    container.appendChild(content)
+    modal.appendChild(container)
+    document.body.appendChild(modal)
+
+    var closeModal = function(event) {
+      event.stopPropagation()
+      event.preventDefault()
+
+      addClass(modal, 'is-hidden')
+      if (postClose) {
+        postClose()
+      }
+    }
+
+    content.addEventListener('click', function(event) {
+      event.stopPropagation()
+      event.preventDefault()
+    })
+
+    modal.addEventListener('click', closeModal)
+    closeButton.addEventListener('click', closeModal)
+
+    document.addEventListener('keyup', function(event) {
+      if (event.key === 'Escape' || event.code === 'Escape' || event.keyCode === 27) {
+        closeModal(event)
+      }
+    })
+
+    return modal
+  }
+}
+
+},{"amp-add-class":1}],30:[function(require,module,exports){
 // navigation bar
 'use strict'
 
@@ -1697,7 +1768,8 @@ var initNavScroll = function(container, scroll, fade) {
 
       fade.out(nav, function() {
         container.style.height = height + 'px'
-        addClass(nav, 'is-top-nav')
+        addClass(nav, 'is-side-nav')
+
         fade.in(nav, function() {
           isTransitioning = false
         })
@@ -1708,7 +1780,8 @@ var initNavScroll = function(container, scroll, fade) {
       isInView = true
       fade.out(nav, function() {
         container.style.height = 'auto'
-        removeClass(nav, 'is-top-nav')
+        removeClass(nav, 'is-side-nav')
+
         fade.in(nav, function() {
           isTransitioning = false
         })
@@ -1724,7 +1797,7 @@ module.exports = {
     var navLinks = container.querySelectorAll('.nav-link')
 
     // change position on scroll
-    initNavScroll(container, scroll, fade)
+    // initNavScroll(container, scroll, fade)
 
     // change icon on hover
     for (var i = 0; i < navLinks.length; i++) {
@@ -1733,7 +1806,7 @@ module.exports = {
   }
 }
 
-},{"amp-add-class":1,"amp-remove-class":5}],29:[function(require,module,exports){
+},{"amp-add-class":1,"amp-remove-class":5}],31:[function(require,module,exports){
 // scroll event handler using raf
 // inspired by https://developer.mozilla.org/en-US/docs/Web/Events/scroll
 'use strict'
@@ -1779,131 +1852,51 @@ module.exports = {
   }
 }
 
-},{}],30:[function(require,module,exports){
-// add background images to stories
-'use strict'
-
-var initArticle = function(article, blurb, fade) {
-  fade.out(blurb)
-
-  article.addEventListener('mouseover', function() {
-    fade.in(blurb)
-  })
-
-  article.addEventListener('mouseout', function() {
-    fade.out(blurb)
-  })
-}
-
-module.exports = {
-  init: function(root, fade) {
-    var document = root.document
-
-    // get all articles
-    var articles = document.querySelectorAll('.story-list-item')
-
-    var article
-    var bg
-    var blurb
-    for (var i = 0; i < articles.length; i++) {
-      article = articles[i]
-      blurb = article.querySelector('.story-blurb')
-
-      // give them the proper backgrounds
-      bg = article.getAttribute('data-bg')
-      article.style['background-image'] = 'url(' + bg + ')'
-
-      // initialize the fading behavior
-      if (blurb) {
-        initArticle(article, blurb, fade)
-      }
-    }
-  }
-}
-
-},{}],31:[function(require,module,exports){
+},{}],32:[function(require,module,exports){
 // video list link hijacking and modal insertion
 'use strict'
 
-var addClass = require('amp-add-class')
 var removeClass = require('amp-remove-class')
 
-var EMBED_ID = 'film-modal-embed'
+var modal = require('./modal')
 
-var modal
-var container
-var embed
+var RE_VIMEO_ID = /(\d+)$/
 
-var closeModal = function(event) {
-  event.stopPropagation()
-  event.preventDefault()
-
-  addClass(modal, 'is-hidden')
-  embed.src = ''
+var getVimeoId = function(url) {
+  return url.match(RE_VIMEO_ID)[1]
 }
 
-var changeVideoEmbed = function(vimeoId) {
+var handleVideoClick = function(modal, embed, element) {
+  var vimeoId = getVimeoId(element.getAttribute('href'))
+
   embed.src = '//player.vimeo.com/video/' + vimeoId
-}
-
-var handleVideoClick = function(element) {
-  var vimeoId = element.getAttribute('data-vimeo')
-
   removeClass(modal, 'is-hidden')
-  changeVideoEmbed(vimeoId)
 }
 
-var initVideoLink = function(element) {
+var initVideoLink = function(modal, embed, element) {
   element.addEventListener('click', function(event) {
     event.stopPropagation()
     event.preventDefault()
 
-    handleVideoClick(element)
-  })
-}
-
-var initVideoModal = function(document) {
-  var closeButton = document.createElement('button')
-  modal = document.createElement('div')
-  container = document.createElement('div')
-  embed = document.createElement('iframe')
-
-  modal.id = 'film-modal'
-  closeButton.id = 'film-modal-close-button'
-  container.id = 'film-modal-container'
-  embed.id = 'film-modal-embed'
-
-  addClass(modal, 'is-hidden')
-  embed.webkitallowfullscreen = true
-  embed.mozallowfullscreen = true
-  embed.allowfullscreen = true
-
-  container.appendChild(closeButton)
-  container.appendChild(embed)
-  modal.appendChild(container)
-  document.body.appendChild(modal)
-
-  closeButton.addEventListener('click', closeModal)
-  document.addEventListener('keyup', function(event) {
-    if (event.key === 'Escape' || event.code === 'Escape' || event.keyCode === 27) {
-      closeModal(event)
-    }
+    handleVideoClick(modal, embed, element)
   })
 }
 
 module.exports = {
-  init: function(root) {
+  init: function initVideos(root) {
     var document = root.document
     var filmSection = document.getElementById('film')
-    var videoLinks = filmSection.querySelectorAll('.story-list-item-link')
+    var videoLinks = filmSection.querySelectorAll('.story-link')
 
-    initVideoModal(document)
+    var embed = document.createElement('iframe')
+    var videoModal = modal.create(document, embed, function() {
+      embed.src = ''
+    })
 
-    var link
     for (var i = 0; i < videoLinks.length; i++) {
-      initVideoLink(videoLinks[i])
+      initVideoLink(videoModal, embed, videoLinks[i])
     }
   }
 }
 
-},{"amp-add-class":1,"amp-remove-class":5}]},{},[27]);
+},{"./modal":29,"amp-remove-class":5}]},{},[28]);
