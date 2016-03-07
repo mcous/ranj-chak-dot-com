@@ -3,5 +3,8 @@ module.exports = {
     'postcss-import',
     'postcss-cssnext',
     'lost'
-  ]
+  ],
+  'postcss-import': {
+    from: 'src/style/index.css'
+  }
 }
