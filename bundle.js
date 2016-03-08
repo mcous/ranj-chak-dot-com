@@ -1216,14 +1216,8 @@ module.exports={
     "film": {
       "videos": [
         {
-          "name": "Million Dollar Blocks",
-          "blurb": "On some blocks, states pay $1 million a year to incarcerate residents, and the cost to families can also be crippling",
-          "thumbnail": "img/video-thumb/million-dollar-blocks.jpg",
-          "link": "https://vimeo.com/147783798"
-        },
-        {
           "name": "Transition At Twelve",
-          "blurb": "Dozens of children and teens have been treated through a trailblazing Dallas clinic",
+          "blurb": "Dozens of transgender children and teens have been treated through a trailblazing Dallas clinic",
           "thumbnail": "img/video-thumb/transition-at-twelve.jpg",
           "link": "https://vimeo.com/140197201"
         },
@@ -1234,16 +1228,22 @@ module.exports={
           "link": "https://vimeo.com/151824169"
         },
         {
+          "name": "Million Dollar Blocks",
+          "blurb": "On some blocks, states pay $1 million a year to incarcerate residents, and the cost to families can also be crippling",
+          "thumbnail": "img/video-thumb/million-dollar-blocks.jpg",
+          "link": "https://vimeo.com/147783798"
+        },
+        {
           "name": "The Cost of a Gunshot",
           "blurb": "More than 2,500 Chicagoans were shot in 2014, but what happens to the vast majority who survive?",
           "thumbnail": "img/video-thumb/cost-of-a-gunshot.jpg",
           "link": "https://vimeo.com/125630343"
         },
         {
-          "name": "Nuclear Graveyard",
-          "blurb": "Self-described \"mad junkyard dog\" Patty Ameno has been on a mission to clean up her hometown's nuclear waste",
-          "thumbnail": "img/video-thumb/nuclear-graveyard.jpg",
-          "link": "https://vimeo.com/125630254"
+          "name": "Locked Up For Life",
+          "blurb": "After the U.S. Supreme Court struck down life without parole for child convicts, Adolfo Davis hoped for a second chance",
+          "thumbnail": "img/video-thumb/locked-up-for-life.jpg",
+          "link": "https://vimeo.com/125630149"
         },
         {
           "name": "False Confessions",
@@ -1264,10 +1264,10 @@ module.exports={
           "link": "https://vimeo.com/125629931"
         },
         {
-          "name": "Locked Up For Life",
-          "blurb": "After the U.S. Supreme Court struck down life without parole for child convicts, Adolfo Davis hoped for a second chance",
-          "thumbnail": "img/video-thumb/locked-up-for-life.jpg",
-          "link": "https://vimeo.com/125630149"
+          "name": "Nuclear Graveyard",
+          "blurb": "Self-described \"mad junkyard dog\" Patty Ameno has been on a mission to clean up her hometown's nuclear waste",
+          "thumbnail": "img/video-thumb/nuclear-graveyard.jpg",
+          "link": "https://vimeo.com/125630254"
         },
         {
           "name": "Bank Deserts",
@@ -1305,7 +1305,7 @@ module.exports={
         },
         {
           "name": "What it means to be a bullied transgender kid in Texas",
-          "blurb": "How does the trans community move on after Houston’s rejection of ‘bathroom bill’?",
+          "blurb": "How does the trans community move on after Houston’s rejection of the ‘bathroom bill’?",
           "link": "http://america.aljazeera.com/watch/shows/america-tonight/articles/2015/11/10/bullied-transgender-kid-in-texas-bathroom-bill-lgbt.html",
           "thumbnail": "img/story-thumb/trans-bullying.jpg"
         },
@@ -1334,6 +1334,12 @@ module.exports={
           "thumbnail": "img/story-thumb/adolfo-davis.jpg"
         },
         {
+          "name": "Exclusive: My grandfather runs an Amish cult from prison",
+          "blurb": "The son of two Bergholz Barbers speaks out for the first time about the insular Ohio community he says he escaped",
+          "link": "http://america.aljazeera.com/watch/shows/america-tonight/articles/2014/10/28/ohio-amish-beardcuttingcult.html",
+          "thumbnail": "img/story-thumb/amish-beard-cutting.jpg"
+        },
+        {
           "name": "Race and Ferguson’s City Council",
           "blurb": "Two candidates – one black, one white – in the country’s ‘biggest local election’ on the issues facing Ferguson",
           "link": "http://america.aljazeera.com/watch/shows/america-tonight/articles/2015/4/3/the-ferguson-swing-seat.html",
@@ -1352,6 +1358,12 @@ module.exports={
           "thumbnail": "img/story-thumb/cameron-tillman.jpg"
         },
         {
+          "name": "Left Behind: Families without paid leave are struggling",
+          "blurb": "Two New Hampshire mothers call for politicians to fight for paid leave",
+          "link": "http://america.aljazeera.com/features/2016/2/2016-left-behind-meet-the-voters.html#featureArticle-chapter--3",
+          "thumbnail": "img/story-thumb/paid-leave.png"
+        },
+        {
           "name": "Take back the streets: Fighting harassment with feminist street art",
           "blurb": "One woman is battling street harassment by showing the world the faces of its victims",
           "link": "http://america.aljazeera.com/watch/shows/america-tonight/articles/2014/10/30/stop-telling-womentosmiletakingonharassmentwithfeministstreetart.html",
@@ -1364,28 +1376,16 @@ module.exports={
           "thumbnail": "img/story-thumb/mayor-march.jpg"
         },
         {
-          "name": "Why would someone confess to a crime he didn’t commit?",
-          "blurb": "Sundhe Moses spent 18 years in prison for a murder he confessed to but says he wasn’t guilty of",
-          "link": "http://america.aljazeera.com/watch/shows/america-tonight/articles/2014/5/21/why-would-someoneconfesstoacrimehedidntcommit.html",
-          "thumbnail": "img/story-thumb/false-confessions.jpg"
-        },
-        {
-          "name": "Elite NYC schools wrestle with drop in black, Hispanic students",
-          "blurb": "With black and Hispanic enrollment at record lows, New York City considers changing its exam-based admissions",
-          "link": "http://america.aljazeera.com/watch/shows/america-tonight/articles/2014/11/24/nyc-schools-blackhispanicasian.html",
-          "thumbnail": "img/story-thumb/elite-schools.jpg"
-        },
-        {
           "name": "Is the University of Montana the ‘blueprint’ for sexual assault response?",
           "blurb": "Rape reports involving Montana football players led to a Justice Department overhaul of sexual assault policies",
           "link": "http://america.aljazeera.com/watch/shows/america-tonight/articles/2015/4/17/is-the-university-of-montana-the-blueprint-for-sexual-assault-response.html",
           "thumbnail": "img/story-thumb/montana.jpg"
         },
         {
-          "name": "Exclusive: My grandfather runs an Amish cult from prison",
-          "blurb": "The son of two Bergholz Barbers speaks out for the first time about the insular Ohio community he says he escaped",
-          "link": "http://america.aljazeera.com/watch/shows/america-tonight/articles/2014/10/28/ohio-amish-beardcuttingcult.html",
-          "thumbnail": "img/story-thumb/amish-beard-cutting.jpg"
+          "name": "Would you crowd fund your maternity leave?",
+          "blurb": "A new site, MyBabyBond.com, allows parents to register for money to cover time off with a newborn",
+          "link": "http://america.aljazeera.com/watch/shows/america-tonight/articles/2016/2/3/would-you-crowd-fund-your-maternity-leave.html",
+          "thumbnail": "img/story-thumb/crowd-funded-maternity.jpg"
         }
       ]
     },
@@ -1752,6 +1752,30 @@ var initNavScroll = function(container, scroll, fade) {
   var isInView = true
   var isTransitioning = false
 
+  var handleInView = function(shouldBeInView, height) {
+    if (shouldBeInView !== isInView) {
+      isTransitioning = true
+
+      fade.out(nav, function() {
+        if (shouldBeInView) {
+          container.style.height = 'auto'
+          removeClass(nav, 'is-side-nav')
+        }
+
+        else {
+          container.style.height = height + 'px'
+          addClass(nav, 'is-side-nav')
+        }
+
+        fade.in(nav, function() {
+          isTransitioning = false
+        })
+      })
+    }
+
+    isInView = shouldBeInView
+  }
+
   scroll.add(function onNavScroll(scrollTop) {
     if (isTransitioning) {
       return
@@ -1760,33 +1784,9 @@ var initNavScroll = function(container, scroll, fade) {
     var rect = container.getBoundingClientRect()
     var top = rect.top
     var height = rect.height
-    var middle = height / 2
+    var threshold = -3 * height / 4
 
-    if ((top < -middle) && (isInView === true)) {
-      isInView = false
-      isTransitioning = true
-
-      fade.out(nav, function() {
-        container.style.height = height + 'px'
-        addClass(nav, 'is-side-nav')
-
-        fade.in(nav, function() {
-          isTransitioning = false
-        })
-      })
-    }
-
-    else if ((top > -middle) && (isInView === false)) {
-      isInView = true
-      fade.out(nav, function() {
-        container.style.height = 'auto'
-        removeClass(nav, 'is-side-nav')
-
-        fade.in(nav, function() {
-          isTransitioning = false
-        })
-      })
-    }
+    handleInView((top > threshold), height)
   })
 }
 
@@ -1797,7 +1797,7 @@ module.exports = {
     var navLinks = container.querySelectorAll('.nav-link')
 
     // change position on scroll
-    // initNavScroll(container, scroll, fade)
+    initNavScroll(container, scroll, fade)
 
     // change icon on hover
     for (var i = 0; i < navLinks.length; i++) {
