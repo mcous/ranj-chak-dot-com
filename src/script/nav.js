@@ -29,6 +29,7 @@ var initNavScroll = function(container, scroll, fade) {
 
       fade.out(nav, function() {
         if (shouldBeInView) {
+          container.style.height = 'auto'
           removeClass(nav, 'is-side-nav')
         }
 

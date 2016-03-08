@@ -6,6 +6,10 @@
   background-color: rgba(255, 255, 255, 0.7);
   padding: 2rem 0;
   lost-center: 90%;
+
+  @media (--medium-and-smaller) {
+    height: auto !important;
+  }
 }
 
 #nav {
@@ -17,6 +21,12 @@
   }
 
   z-index: 10;
+
+  @media (--medium-and-smaller) {
+    &.is-faded-out {
+      opacity: 0.99 !important;
+    }
+  }
 }
 
 .nav-link {
