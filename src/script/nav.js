@@ -23,6 +23,29 @@ var initNavScroll = function(container, scroll, fade) {
   var isInView = true
   var isTransitioning = false
 
+  var handleInView = function(shouldBeInView, height) {
+    if (shouldBeInView !== isInView) {
+      isTransitioning = true
+
+      fade.out(nav, function() {
+        if (shouldBeInView) {
+          removeClass(nav, 'is-side-nav')
+        }
+
+        else {
+          container.style.height = height + 'px'
+          addClass(nav, 'is-side-nav')
+        }
+
+        fade.in(nav, function() {
+          isTransitioning = false
+        })
+      })
+    }
+
+    isInView = shouldBeInView
+  }
+
   scroll.add(function onNavScroll(scrollTop) {
     if (isTransitioning) {
       return
@@ -31,33 +54,9 @@ var initNavScroll = function(container, scroll, fade) {
     var rect = container.getBoundingClientRect()
     var top = rect.top
     var height = rect.height
-    var middle = height / 2
+    var threshold = -3 * height / 4
 
-    if ((top < -middle) && (isInView === true)) {
-      isInView = false
-      isTransitioning = true
-
-      fade.out(nav, function() {
-        container.style.height = height + 'px'
-        addClass(nav, 'is-side-nav')
-
-        fade.in(nav, function() {
-          isTransitioning = false
-        })
-      })
-    }
-
-    else if ((top > -middle) && (isInView === false)) {
-      isInView = true
-      fade.out(nav, function() {
-        container.style.height = 'auto'
-        removeClass(nav, 'is-side-nav')
-
-        fade.in(nav, function() {
-          isTransitioning = false
-        })
-      })
-    }
+    handleInView((top > threshold), height)
   })
 }
 
@@ -68,7 +67,7 @@ module.exports = {
     var navLinks = container.querySelectorAll('.nav-link')
 
     // change position on scroll
-    // initNavScroll(container, scroll, fade)
+    initNavScroll(container, scroll, fade)
 
     // change icon on hover
     for (var i = 0; i < navLinks.length; i++) {
