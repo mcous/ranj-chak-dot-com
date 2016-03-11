@@ -10,7 +10,7 @@
     "lint": "npm run lint:js && npm run lint:css",
     "build": "make all",
     "clean": "make clean",
-    "test": "mocha",
+    "test": "echo \"Tests not implemented\" && exit 1",
     "posttest": "lint",
     "postversion": "npm run clean && npm run build && gh-pages -d public"
   },
