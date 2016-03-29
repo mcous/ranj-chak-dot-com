@@ -32,17 +32,27 @@
 .nav-link {
   display: block;
   lost-center: 80%;
+  vertical-align: bottom;
 
   @media (--medium-view) {
     lost-center: none;
     lost-column: 1/3;
   }
+
+  &:hover {
+    & .nav-link-icon {
+      background-size: 0%, 100%;
+    }
+  }
 }
 
 .nav-link-icon {
   backface-visibility: hidden;
-  padding: 0 15%;
+  height: 0;
+  padding-bottom: 60%;
   width: 100%;
+
+  background-size: 100%, 0%;
 }
 
 .nav-link-title {
@@ -56,6 +66,13 @@
 .social-link {
   display: block;
   lost-column: 1/7 7 1rem;
+}
+
+.social-link-icon {
+  width: 100%;
+  height: 0;
+  padding-bottom: 100%;
+  background-size: 100%;
 }
 
 #page-links {
@@ -87,6 +104,7 @@
   @media (--large-view) {
     position: fixed;
     lost-center: none;
+
     left: 0;
     top: 0;
     padding: 0;
@@ -112,10 +130,6 @@
       lost-column: none;
       padding: 5% 5%;
       width: 100%;
-    }
-
-    & .nav-link-icon {
-      padding: 0;
     }
 
     & .nav-link-title {

@@ -13,27 +13,27 @@
   "film": {
     "banner": {
       "text": "moving pictures",
-      "image": "img/icon/film.png"
+      "image": "img/nav/film.png"
     },
     "nav": {
       "text": "a selection of videos I produced",
       "title": "videos",
       "image": "img/title/film.png",
-      "icon": "img/icon/film.png",
-      "hover": "img/icon/film-hover.png"
+      "icon": "img/nav/film.png",
+      "hover": "img/nav/film-hover.png"
     }
   },
   "writing": {
     "banner": {
       "text": "words on the internet",
-      "image": "img/icon/writing.png"
+      "image": "img/nav/writing.png"
     },
     "nav": {
       "text": "shockingly true stories I wrote",
       "title": "writing",
       "image": "img/title/writing.png",
-      "icon": "img/icon/writing.png",
-      "hover": "img/icon/writing-hover.png"
+      "icon": "img/nav/writing.png",
+      "hover": "img/nav/writing-hover.png"
     }
   },
   "about": {
@@ -41,8 +41,8 @@
       "text": "hopefully relevant facts about me",
       "title": "about me",
       "image": "img/title/about.png",
-      "icon": "img/icon/about.png",
-      "hover": "img/icon/about-hover.png"
+      "icon": "img/nav/about.png",
+      "hover": "img/nav/about-hover.png"
     }
   },
   "sectionContent": {
