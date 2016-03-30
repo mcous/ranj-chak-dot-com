@@ -3,6 +3,7 @@
 
 var removeClass = require('amp-remove-class')
 
+var util = require('./util')
 var modal = require('./modal')
 
 var handleImageLinkClick = function(modal, image, element) {
@@ -27,8 +28,8 @@ module.exports = {
     var image = document.createElement('img')
     var imageModal = modal.create(document, image)
 
-    for (var i = 0; i < imageLinks.length; i++) {
-      initImageLink(imageModal, image, imageLinks[i])
-    }
+    util.forEach(imageLinks, function(link) {
+      initImageLink(imageModal, image, link)
+    })
   }
 }

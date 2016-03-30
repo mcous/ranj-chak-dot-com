@@ -58,12 +58,12 @@ a {
 }
 
 .is-faded-out {
-  transition: opacity 400ms;
+  transition: opacity 300ms;
   opacity: 0;
 }
 
 .is-faded-in {
-  transition: opacity 400ms;
+  transition: opacity 300ms;
   opacity: 1;
 }
 

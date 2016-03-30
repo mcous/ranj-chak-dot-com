@@ -3,6 +3,7 @@
 
 var removeClass = require('amp-remove-class')
 
+var util = require('./util')
 var modal = require('./modal')
 
 var RE_VIMEO_ID = /(\d+)$/
@@ -38,8 +39,8 @@ module.exports = {
       embed.src = ''
     })
 
-    for (var i = 0; i < videoLinks.length; i++) {
-      initVideoLink(videoModal, embed, videoLinks[i])
-    }
+    util.forEach(videoLinks, function(link) {
+      initVideoLink(videoModal, embed, link)
+    })
   }
 }

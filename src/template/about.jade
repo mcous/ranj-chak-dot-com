@@ -4,9 +4,19 @@ include ./sections
   - var content = sectionContent.about
   - var figure = content.figure
   - var figureDefault = figure.default
+  - var figureDefaultId = 'about-figure-' + figure.default
   - var diagram = content.diagram
 
-  img(src=figure[figureDefault] alt=figureDefault)#about-figure
+  #about-figure-container
+    img(
+      id=figureDefaultId
+      src=figure[figureDefault]
+      alt=figureDefault).about-figure.is-faded-in
+    
+    each area in figure.areas
+      - var areaId = area.id
+      - var id = 'about-figure-' + areaId
+      img(src=figure[areaId] alt=areaId id=id).about-figure.is-faded-out
 
   #about-words  
     each paragraph in content.blurb
