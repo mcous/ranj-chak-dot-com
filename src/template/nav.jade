@@ -1,15 +1,19 @@
 mixin navLink(id, nav)
-  a(href='#' + id title=nav.title).nav-link
-    img(
-      src=nav.icon
-      data-hover-src=nav.hover
-      alt=nav.title).nav-link-icon
+  - var href = '#' + id
+  - var icon = 'url(' +  nav.icon + ')'
+  - var hover = 'url(' +  nav.hover + ')'
+  - var style = 'background-image: ' + icon + ', ' + hover
+  
+  a(href=href title=nav.title).nav-link
+    div(style=style).nav-link-icon
     img(src=nav.image alt=nav.text).nav-link-title
 
-mixin socialLink(name, icon, link)
+mixin socialLink(name, icon, href)
   - var target = (/^mailto/.test(link)) ? '' : '_blank'
-  a(href=link target=target title=name).social-link
-    img(src=icon alt=name).social-link-icon
+  - var style = 'background-image: url(' + icon + ')'
+  
+  a(href=href target=target title=name).social-link
+    div(style=style).social-link-icon
 
 #nav-container.container
   nav#nav

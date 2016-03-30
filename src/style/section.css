@@ -1,6 +1,4 @@
-/***************************/
 /* generic section styling */
-/***************************/
 
 .sections {
   width: 100%;
@@ -93,35 +91,33 @@
     height: 12rem;
     float: left;
 
+    @media (--xlarge-view) {
+      height: 16rem;
+    }
+
     &:nth-child(3),
-    &:nth-child(5),
-    &:nth-child(6),
-    &:nth-child(8),
-    &:nth-child(11),
-    &:nth-child(12),
-    &:nth-child(14),
-    &:nth-child(18) {
-      margin-right: 0;
-      float: right;
+    &:nth-child(3n+5),
+    &:nth-child(6n),
+    &:last-child {
+      &:not(
+        :nth-last-child(3),
+        :nth-last-child(2)) {
+
+        margin-right: 0;
+        float: right;
+      }
     }
 
-    &:nth-child(4),
-    &:nth-child(8),
-    &:nth-child(10),
-    &:nth-child(14) {
-      height: 26rem;
-      width: calc(2 / 3 * 100% - (2rem / 3));
-    }
-  }
+    &:nth-child(6n+4),
+    &:nth-child(6n+8) {
+      &:not(:nth-last-child(-n+3)) {
+        height: 26rem;
+        width: calc(2 / 3 * 100% - (2rem / 3));
 
-  @media (--xlarge-view) {
-    height: 16rem;
-
-    &:nth-child(4),
-    &:nth-child(8),
-    &:nth-child(10),
-    &:nth-child(14) {
-      height: 34rem;
+        @media (--xlarge-view) {
+          height: 34rem;
+        }
+      }
     }
   }
 }

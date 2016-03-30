@@ -2,7 +2,8 @@ module.exports = {
   use: [
     'postcss-import',
     'postcss-cssnext',
-    'lost'
+    'lost',
+    'cssnano'
   ],
   'postcss-import': {
     from: 'src/style/index.css'

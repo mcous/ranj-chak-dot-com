@@ -4,20 +4,6 @@
 var addClass = require('amp-add-class')
 var removeClass = require('amp-remove-class')
 
-var initNavLink = function(element) {
-  var icon = element.querySelector('.nav-link-icon')
-  var source = icon.getAttribute('src')
-  var hoverSource = icon.getAttribute('data-hover-src')
-
-  element.addEventListener('mouseover', function() {
-    icon.setAttribute('src', hoverSource)
-  })
-
-  element.addEventListener('mouseout', function() {
-    icon.setAttribute('src', source)
-  })
-}
-
 var initNavScroll = function(container, scroll, fade) {
   var nav = container.querySelector('#nav')
   var isInView = true
@@ -47,7 +33,7 @@ var initNavScroll = function(container, scroll, fade) {
     isInView = shouldBeInView
   }
 
-  scroll.add(function onNavScroll(scrollTop) {
+  scroll.add(function onNavScroll() {
     if (isTransitioning) {
       return
     }
@@ -65,14 +51,8 @@ module.exports = {
   init: function(root, scroll, fade) {
     var document = root.document
     var container = document.getElementById('nav-container')
-    var navLinks = container.querySelectorAll('.nav-link')
 
     // change position on scroll
     initNavScroll(container, scroll, fade)
-
-    // change icon on hover
-    for (var i = 0; i < navLinks.length; i++) {
-      initNavLink(navLinks[i])
-    }
   }
 }

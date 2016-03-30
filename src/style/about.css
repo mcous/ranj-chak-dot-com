@@ -1,6 +1,4 @@
-/*************************/
 /* about section styling */
-/*************************/
 
 #about {
   padding: 2rem 0;
@@ -20,7 +18,8 @@
   }
 }
 
-#about-figure {
+#about-figure-container {
+  position: relative;
   margin: 0 5%;
   width: 90%;
 
@@ -33,5 +32,15 @@
     float: left;
     margin: 0;
     width: 33%;
+  }
+}
+
+.about-figure {
+  width: 100%;
+
+  &:not(:first-child) {
+    position: absolute;
+    left: 0;
+    top: 0;
   }
 }

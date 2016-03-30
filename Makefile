@@ -13,6 +13,7 @@ CONTENT := src/content.json
 SCRIPT_ENTRY := $(SCRIPT_DIR)/index.js
 SCRIPT_SRC := $(SCRIPT_DIR)/*.js
 SCRIPT_OUT := $(OUT_DIR)/bundle.js
+SCRIPT_MAP := $(OUT_DIR)/bundle.js.map
 
 STYLE_ENTRY := $(STYLE_DIR)/index.css
 STYLE_SRC := $(STYLE_DIR)/*.css
@@ -31,17 +32,30 @@ BROWSERIFY = node_modules/.bin/browserify
 WATCHIFY = node_modules/.bin/watchify
 IMAGEMIN = node_modules/.bin/imagemin
 ONCHANGE = node_modules/.bin/onchange
+UGLIFY = node_modules/.bin/uglifyjs
+CSSNANO = node_modules/.bin/cssnano
 
 JADE_OPTS := -p $(TEMPLATE_ENTRY) -O $(CONTENT) < $(TEMPLATE_ENTRY) > $(TEMPLATE_OUT)
-POSTCSS_OPTS := -c .postcssrc $(STYLE_ENTRY) > $(STYLE_OUT)
-BROWSERIFY_OPTS := $(SCRIPT_ENTRY) -o $(SCRIPT_OUT)
+POSTCSS_BASE_OPTS := -c .postcssrc $(STYLE_ENTRY) -o $(STYLE_OUT)
+BROWSERIFY_BASE_OPTS := $(SCRIPT_ENTRY) -o $(SCRIPT_OUT)
 
-.PHONY: all clean watch
+ifeq ($(NODE_ENV), prod)
+	CSSNANO_OPTS := --no-map
+	MINIFYIFY_OPTS := -p [minifyify --no-map]
+else
+	CSSNANO_OPTS := --map --cssnano.sourcemap
+	MINIFYIFY_OPTS := -d -p [minifyify --map bundle.js.map --output $(SCRIPT_MAP)]
+endif
+
+POSTCSS_OPTS := $(POSTCSS_BASE_OPTS) $(CSSNANO_OPTS)
+BROWSERIFY_OPTS := $(BROWSERIFY_BASE_OPTS) $(MINIFYIFY_OPTS)
+
+.PHONY: all clean watch minify minify-js minify-css
 
 all: $(TEMPLATE_OUT) $(STYLE_OUT) $(SCRIPT_OUT) $(IMAGE_OUT)
 
 clean:
-	rm -rf $(TEMPLATE_OUT) $(STYLE_OUT) $(SCRIPT_OUT) $(OUT_DIR)/img/*
+	rm -rf $(TEMPLATE_OUT) $(STYLE_OUT) $(SCRIPT_OUT) $(SCRIPT_MAP) $(OUT_DIR)/img/*
 
 watch:
 	$(ONCHANGE) $(TEMPLATE_SRC) $(CONTENT) -- make $(TEMPLATE_OUT) &
