@@ -1,36 +1,30 @@
-/*********************/
 /* fonts and imports */
-/*********************/
 
 @import url(https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700);
-
 @import './breaks.css';
-
 @import './title.css';
-
 @import './reel.css';
-
 @import './nav.css';
-
 @import './section.css';
-
 @import './about.css';
-
 @import './modal.css';
 
 p {
   font-family: 'PT Sans Narrow', serif;
-  font-weight: 300;
+  font-weight: normal;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: 'PT Sans Narrow', serif;
-  font-weight: 400;
+  font-weight: normal;
 }
 
-/*************/
 /* normalize */
-/*************/
 
 * {
   box-sizing: border-box;
@@ -71,13 +65,12 @@ a {
   display: none;
 }
 
-.container, .section {
+.container,
+.section {
   border-bottom: 1px solid grey;
 }
 
-/******************/
 /* footer styling */
-/******************/
 
 #footer {
   lost-center: 95%;

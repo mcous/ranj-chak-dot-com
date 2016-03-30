@@ -3,7 +3,6 @@
 
 var anchorScroll = require('anchor-scroll')
 var scrollTop = require('scrolltop')
-var fade = require('fade')
 var domready = require('domready')
 var transitionEndEvent = require('transitionend-property')
 

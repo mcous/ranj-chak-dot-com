@@ -1,6 +1,4 @@
-/***************************/
 /* generic section styling */
-/***************************/
 
 .sections {
   width: 100%;
@@ -101,7 +99,10 @@
     &:nth-child(3n+5),
     &:nth-child(6n),
     &:last-child {
-      &:not(:nth-last-child(3), :nth-last-child(2)) {
+      &:not(
+        :nth-last-child(3),
+        :nth-last-child(2)) {
+
         margin-right: 0;
         float: right;
       }
