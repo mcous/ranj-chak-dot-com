@@ -33,7 +33,7 @@ var initNavScroll = function(container, scroll, fade) {
     isInView = shouldBeInView
   }
 
-  scroll.add(function onNavScroll(scrollTop) {
+  scroll.add(function onNavScroll() {
     if (isTransitioning) {
       return
     }
@@ -51,7 +51,6 @@ module.exports = {
   init: function(root, scroll, fade) {
     var document = root.document
     var container = document.getElementById('nav-container')
-    var navLinks = container.querySelectorAll('.nav-link')
 
     // change position on scroll
     initNavScroll(container, scroll, fade)

@@ -1,9 +1,6 @@
 // do cool things with the about me figure on hover
 'use strict'
 
-var addClass = require('amp-add-class')
-var removeClass = require('amp-remove-class')
-
 var util = require('./util')
 var fade = require('./css-fade')
 var content = require('../content.json').sectionContent.about.figure
@@ -23,11 +20,11 @@ var getFigureElementId = function(name) {
   return ('about-figure-' + name)
 }
 
-var checkMousePosition = function(x, y) {
+var checkMousePosition = function(mouseX, mouseY) {
   var imageBox = container.getBoundingClientRect()
 
-  var x = (x - imageBox.left) / imageBox.width
-  var y = (y - imageBox.top) / imageBox.height
+  var x = (mouseX - imageBox.left) / imageBox.width
+  var y = (mouseY - imageBox.top) / imageBox.height
   var box = this.box
 
   if ((x > box[0]) && (y > box[1]) && (x < box[2]) && (y < box[3])) {
@@ -63,7 +60,7 @@ var setFigure = function(imageName) {
   current = imageName
 }
 
-var resumeSwitching = function(switching) {
+var resumeSwitching = function() {
   setFigure(current)
 
   // switch figures on a 1 second delay

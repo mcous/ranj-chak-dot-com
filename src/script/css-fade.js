@@ -9,7 +9,6 @@ var util = require('./util')
 var FADE_IN_CLASSNAME = 'is-faded-in'
 var FADE_OUT_CLASSNAME = 'is-faded-out'
 
-var root
 var endEvent
 
 module.exports = {

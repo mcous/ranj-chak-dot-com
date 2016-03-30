@@ -13,7 +13,6 @@ var trigger = function(event) {
 module.exports = {
   init: function(root, scrollTop) {
     var running = false
-    var top = scrollTop()
 
     root.addEventListener('scroll', function() {
       if (running) {
