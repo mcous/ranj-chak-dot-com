@@ -8,7 +8,7 @@ ranjchak.com is a static page hosted on GitHub pages. It uses [nodejs](http://no
 
 1. `$ git clone https://github.com/mcous/ranj-chak-dot-com.git`
 2. `$ npm install`
-3. `$ make && make watch && npm start`
+3. `$ make && npm start`
 
 A dev server will now be running at [0.0.0.0:8080](http://localhost:8080) to show you what the page will look like.
 
