@@ -31,11 +31,11 @@ The development server is [Express](http://expressjs.com/)-based and lives in `s
 
 ### deploying
 
-To deploy the site, cut a new release with the [npm version command](https://docs.npmjs.com/cli/version). The automatic `postversion` script will take care of building and pushing to GitHub pages. To deploy, you must have write access to the `ranj chak dot com` repository. For example:
+To deploy the site, cut a new release with the [npm version command](https://docs.npmjs.com/cli/version). The automatic `postversion` script will take care of building and pushing to GitHub pages. To deploy, you must have write access to the `ranj-chak-dot-com` repository. For example:
 
-* `$ npm version patch` if you fixed a minor issue, like a typo
-* `$ npm version minor` if you did something small, like added a video
-* `$ npm version major` if you did something big, like change the structure
+* `$ npm version patch -m 'Upgrade to %s for ____'` if you fixed a minor issue, like a typo
+* `$ npm version minor -m 'Upgrade to %s for ____'` if you did something small, like added a video
+* `$ npm version major -m 'Upgrade to %s for ____'` if you did something big, like change the structure
 
 ## source
 
