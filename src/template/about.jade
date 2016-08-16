@@ -16,7 +16,7 @@ include ./sections
     each area in figure.areas
       - var areaId = area.id
       - var id = 'about-figure-' + areaId
-      img(src=figure[areaId] alt=areaId id=id).about-figure
+      img(src=figure[areaId] alt=areaId id=id).about-figure.is-invisible
 
   #about-words  
     each paragraph in content.blurb
