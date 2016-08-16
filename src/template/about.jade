@@ -16,11 +16,11 @@ include ./sections
     each area in figure.areas
       - var areaId = area.id
       - var id = 'about-figure-' + areaId
-      img(src=figure[areaId] alt=areaId id=id).about-figure.is-faded-out
+      img(src=figure[areaId] alt=areaId id=id).about-figure
 
   #about-words  
     each paragraph in content.blurb
-      p.about-blurb= paragraph
+      p.about-blurb!= paragraph
       
     p.about-blurb
       = diagram.blurb + ' '

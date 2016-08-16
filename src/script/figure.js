@@ -2,7 +2,6 @@
 'use strict'
 
 var util = require('./util')
-var fade = require('./css-fade')
 var content = require('../content.json').sectionContent.about.figure
 
 var SWITCH_INTERVAL_MS = 1200
@@ -37,24 +36,22 @@ var checkMousePosition = function(mouseX, mouseY) {
 var setFigure = function(imageName) {
   var newId = getFigureElementId(imageName)
 
-  var toFadeOut = figures.filter(function(figure) {
-    return ((figure.fade === 'is-faded-in') && (figure.id !== newId))
+  var toHide = figures.filter(function(figure) {
+    return figure.id !== newId
   })
 
-  var toFadeIn = figures.filter(function(figure) {
-    return ((figure.fade === 'is-faded-out') && (figure.id === newId))
+  var toShow = figures.filter(function(figure) {
+    return figure.id === newId
   })
 
-  toFadeIn.forEach(function(figure) {
-    figure.fade = 'is-faded-in'
-    fade.in(figure.element)
+  toHide.forEach(function(figure) {
+    figure.show = false
+    util.makeInvisible(figure.element)
   })
 
-  toFadeOut.forEach(function(figure) {
-    setTimeout(function() {
-      figure.fade = 'is-faded-out'
-      fade.out(figure.element)
-    }, (fade.FADE_TIME_MS / 2))
+  toShow.forEach(function(figure) {
+    figure.show = true
+    util.makeVisible(figure.element)
   })
 
   current = imageName
@@ -87,11 +84,11 @@ module.exports = {
       var state = {
         id: figure.id,
         element: figure,
-        fade: 'is-faded-out'
+        show: false
       }
 
       if (state.id === getFigureElementId(current)) {
-        state.fade = 'is-faded-in'
+        state.show = true
       }
 
       return state

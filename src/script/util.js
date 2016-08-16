@@ -1,5 +1,10 @@
 'use strict'
 
+var addClass = require('amp-add-class')
+var removeClass = require('amp-remove-class')
+
+var INVISIBLE_CLASSNAME = 'is-invisible'
+
 module.exports = {
   forEach: function forEach(arrayLike, iteratee) {
     for (var i = 0; i < arrayLike.length; i++) {
@@ -36,5 +41,13 @@ module.exports = {
     }
 
     eventEmitter.addEventListener(event, oneTimeHandler)
+  },
+
+  makeInvisible: function hide(element) {
+    addClass(element, INVISIBLE_CLASSNAME)
+  },
+
+  makeVisible: function show(element) {
+    removeClass(element, INVISIBLE_CLASSNAME)
   }
 }
