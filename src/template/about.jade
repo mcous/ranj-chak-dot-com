@@ -20,7 +20,7 @@ include ./sections
 
   #about-words  
     each paragraph in content.blurb
-      p.about-blurb= paragraph
+      p.about-blurb!= paragraph
       
     p.about-blurb
       = diagram.blurb + ' '
