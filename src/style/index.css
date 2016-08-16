@@ -65,6 +65,10 @@ a {
   display: none;
 }
 
+.is-invisible {
+  visibility: hidden;
+}
+
 .container,
 .section {
   border-bottom: 1px solid grey;
