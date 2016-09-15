@@ -1,6 +1,6 @@
 {
   "name": "ranj-chak-dot-com",
-  "version": "1.1.10",
+  "version": "1.1.11",
   "description": "Ranjani Chakraborty's personal website",
   "main": "public/index.html",
   "scripts": {
