@@ -23,7 +23,7 @@ var initImageLink = function(modal, image, element) {
 module.exports = {
   init: function initImageModal(root) {
     var document = root.document
-    var imageLinks = document.querySelectorAll('a[href$=png]')
+    var imageLinks = document.querySelectorAll('a[href$=png],a[href$=jpg],a[href$=gif]')
 
     var image = document.createElement('img')
     var imageModal = modal.create(document, image)

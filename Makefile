@@ -23,7 +23,7 @@ TEMPLATE_ENTRY := $(TEMPLATE_DIR)/index.jade
 TEMPLATE_SRC := $(TEMPLATE_DIR)/*.jade
 TEMPLATE_OUT := $(OUT_DIR)/index.html
 
-IMAGE_SRC := $(shell find $(IMAGE_DIR) -name '*.png' -o -name '*.jpg')
+IMAGE_SRC := $(shell find $(IMAGE_DIR) -name '*.png' -o -name '*.jpg' -o -name '*.gif')
 IMAGE_OUT := $(patsubst $(IMAGE_DIR)/%, $(IMAGE_OUT_DIR)/%, $(IMAGE_SRC))
 
 JADE = node_modules/.bin/jade
