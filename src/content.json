@@ -41,6 +41,19 @@
       "hover": "img/nav/writing-hover.png"
     }
   },
+  "art": {
+    "banner": {
+      "text": "drawings and such",
+      "image": "img/nav/art.png"
+    },
+    "nav": {
+      "text": "some art I made",
+      "title": "art",
+      "image": "img/title/art.png",
+      "icon": "img/nav/art.png",
+      "hover": "img/nav/art-hover.png"
+    }
+  },
   "about": {
     "nav": {
       "text": "hopefully relevant facts about me",
@@ -66,10 +79,10 @@
           "link": "https://vimeo.com/151824169"
         },
         {
-          "name": "Million Dollar Blocks",
-          "blurb": "On some blocks, states pay $1 million a year to incarcerate residents, and the cost to families can also be crippling",
-          "thumbnail": "img/video-thumb/million-dollar-blocks.jpg",
-          "link": "https://vimeo.com/147783798"
+          "name": "LGBTQ in India",
+          "blurb": "A look at the effects of India's Penal Code 377: the law against homosexuality",
+          "thumbnail": "img/video-thumb/lgbtq-in-india.jpg",
+          "link": "https://vimeo.com/219460952"
         },
         {
           "name": "The Cost of a Gunshot",
@@ -90,6 +103,12 @@
           "link": "https://vimeo.com/125630456"
         },
         {
+          "name": "Million Dollar Blocks",
+          "blurb": "On some blocks, states pay $1 million a year to incarcerate residents, and the cost to families can also be crippling",
+          "thumbnail": "img/video-thumb/million-dollar-blocks.jpg",
+          "link": "https://vimeo.com/147783798"
+        },
+        {
           "name": "Stop Telling Women to Smile",
           "blurb": "One woman is battling street harassment by showing the world the faces of its victims",
           "thumbnail": "img/video-thumb/stop-telling-women-to-smile.jpg",
@@ -106,12 +125,6 @@
           "blurb": "Self-described \"mad junkyard dog\" Patty Ameno has been on a mission to clean up her hometown's nuclear waste",
           "thumbnail": "img/video-thumb/nuclear-graveyard.jpg",
           "link": "https://vimeo.com/125630254"
-        },
-        {
-          "name": "Bank Deserts",
-          "blurb": "Across the US, bank branches are closing in low-income communities, leaving residents with few financial options",
-          "thumbnail": "img/video-thumb/bank-deserts.jpg",
-          "link": "https://vimeo.com/125630007"
         },
         {
           "name": "Driven",
@@ -224,6 +237,30 @@
           "blurb": "A new site, MyBabyBond.com, allows parents to register for money to cover time off with a newborn",
           "link": "http://america.aljazeera.com/watch/shows/america-tonight/articles/2016/2/3/would-you-crowd-fund-your-maternity-leave.html",
           "thumbnail": "img/story-thumb/crowd-funded-maternity.jpg"
+        }
+      ]
+    },
+    "art": {
+      "pieces": [
+        {
+          "link": "img/art/arundhati.png",
+          "thumbnail": "img/art/arundhati-tn.png"
+        },
+        {
+          "link": "img/art/yuri.png",
+          "thumbnail": "img/art/yuri-tn.png"
+        },
+        {
+          "link": "img/art/toni.png",
+          "thumbnail": "img/art/toni-tn.png"
+        },
+        {
+          "link": "img/art/nope.png",
+          "thumbnail": "img/art/nope-tn.png"
+        },
+        {
+          "link": "img/art/mudras.gif",
+          "thumbnail": "img/art/mudras.gif"
         }
       ]
     },

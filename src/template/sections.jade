@@ -11,8 +11,12 @@ mixin sectionStoryList(banner, stories)
     
     each story in stories
       - var background = 'url(' + story.thumbnail + ')'
+      - var name = story.name
+      - var linkClass = 'story-link' + (name ? ' story-link-with-text' : '') 
+      
       li(style='background-image: ' + background).story-list-item
-        a(href=story.link target='_blank').story-link
-          h3.story-title.story-text= story.name
+        a(href=story.link target='_blank' class=linkClass)
+          if story.name
+            h3.story-title.story-text= story.name
           if story.blurb
             p.story-blurb.story-text= story.blurb

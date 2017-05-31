@@ -6,26 +6,28 @@ var removeClass = require('amp-remove-class')
 var util = require('./util')
 var modal = require('./modal')
 
-var RE_VIMEO_ID = /(\d+)$/
+var RE_VIMEO_ID = /^https:\/\/vimeo.com\/(\d+)$/
 
 var getVimeoId = function(url) {
-  return url.match(RE_VIMEO_ID)[1]
+  return RE_VIMEO_ID.test(url) && url.match(RE_VIMEO_ID)[1]
 }
 
-var handleVideoClick = function(modal, embed, element) {
-  var vimeoId = getVimeoId(element.getAttribute('href'))
-
+var handleVideoClick = function(modal, embed, vimeoId) {
   embed.src = '//player.vimeo.com/video/' + vimeoId
   removeClass(modal, 'is-hidden')
 }
 
 var initVideoLink = function(modal, embed, element) {
-  element.addEventListener('click', function(event) {
-    event.stopPropagation()
-    event.preventDefault()
+  var vimeoId = getVimeoId(element.getAttribute('href'))
 
-    handleVideoClick(modal, embed, element)
-  })
+  if (vimeoId) {
+    element.addEventListener('click', function(event) {
+      event.stopPropagation()
+      event.preventDefault()
+
+      handleVideoClick(modal, embed, vimeoId)
+    })
+  }
 }
 
 module.exports = {
