@@ -1,0 +1,13 @@
+.white { color: #fff; }
+.blue { color: #357edd; }
+.bg-white { background-color: #fff; }
+
+.bg-black-20 { background-color: rgba(0, 0, 0, 0.2); }
+.bg-black-30 { background-color: rgba(0, 0, 0, 0.3); }
+.bg-black-40 { background-color: rgba(0, 0, 0, 0.4); }
+.bg-black-50 { background-color: rgba(0, 0, 0, 0.5); }
+.bg-black-70 { background-color: rgba(0, 0, 0, 0.7); }
+
+.opacity-0 { opacity: 0; }
+.opacity-100 { opacity: 100; }
+.transition-opacity { transition: opacity 0.15s ease-in-out; }

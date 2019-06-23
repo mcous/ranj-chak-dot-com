@@ -1,0 +1,72 @@
+/* use border-box */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  /* prevent adjustments of font size after mobile orientation changes */
+  text-size-adjust: 100%;
+
+  /* smooth scrolling
+  * https://gomakethings.com/smooth-scrolling-links-with-only-css/
+  */
+  scroll-behavior: smooth;
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    scroll-behavior: auto;
+  }
+}
+
+/* remove margin from body and reset font-size + line-height */
+body {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1;
+  font-family: 'avenir next', avenir, 'helvetica neue', helvetica, ubuntu, roboto, noto, 'segoe ui', arial, sans-serif;
+}
+
+/* ensure <main> works in IE 9, 10, and 11 */
+main {
+  display: block;
+}
+
+/* make images responsive */
+img {
+  max-width: 100%;
+  max-height: 100%;
+  border-style: none;
+}
+
+/* strip margin and padding from text elements */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+button {
+  margin: 0;
+  padding: 0;
+}
+
+/* no list style by default */
+ul,
+ol {
+  list-style: none;
+}
+
+/* no underline on links by default */
+a {
+  text-decoration: none;
+}
+
+/* no styles on buttons by default */
+button {
+  border: none;
+  background-color: transparent;
+}

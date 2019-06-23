@@ -1,0 +1,17 @@
+@import '../styles/spacing.css';
+@import '../styles/sizing.css';
+
+.close-button {
+  cursor: pointer;
+  position: absolute;
+  width: var(--size-2);
+  height: var(--size-2);
+  top: calc(-1 * var(--size-1) - var(--spacing-1));
+  right: calc(-1 * var(--size-1) - var(--spacing-1));
+  z-index: 100;
+  background-color: rgba(255, 255, 255, 0.7);
+  background-image: url('../images/icon/close.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  border-radius: 0.5rem;
+}
