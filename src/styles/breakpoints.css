@@ -1,0 +1,16 @@
+/* custom breakpoints */
+:root {
+  --side-spacing-4: calc((100vw - 80em) / 2);
+}
+
+@custom-media --bp1 (width >= 30em);
+@custom-media --bp2 (width >= 45em);
+@custom-media --bp3 (width >= 60em);
+@custom-media --bp4 (width >= 75em);
+@custom-media --bp5 (width >= 90em);
+
+.mxw1 { max-width: 30em; }
+.mxw2 { max-width: 45em; }
+.mxw3 { max-width: 60em; }
+.mxw4 { max-width: 80em; }
+.mxw5 { max-width: 90em; }

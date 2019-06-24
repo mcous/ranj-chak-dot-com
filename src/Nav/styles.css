@@ -1,0 +1,69 @@
+/* nav-specific styles */
+@import '../styles/breakpoints.css';
+@import '../styles/sizing.css';
+
+.nav-link-icon {
+  backface-visibility: hidden;
+  background-size: contain, 0;
+
+  &:hover { background-size: 0, contain; }
+
+  &.film {
+    background-image:
+      url('../images/nav/film.png'),
+      url('../images/nav/film-hover.png');
+  }
+
+  &.writing {
+    background-image:
+      url('../images/nav/writing.png'),
+      url('../images/nav/writing-hover.png');
+  }
+
+  &.art {
+    background-image:
+      url('../images/nav/art.png'),
+      url('../images/nav/art-hover.png');
+  }
+
+  &.about {
+    background-image:
+      url('../images/nav/about.png'),
+      url('../images/nav/about-hover.png');
+  }
+}
+
+.social-link-icon {
+  background-size: contain;
+
+  &.instagram { background-image: url('../images/social/instagram.png'); }
+  &.facebook { background-image: url('../images/social/facebook.png'); }
+  &.twitter { background-image: url('../images/social/twitter.png'); }
+  &.vimeo { background-image: url('../images/social/vimeo.png'); }
+  &.linkedin { background-image: url('../images/social/linkedin.png'); }
+  &.email { background-image: url('../images/social/email.png'); }
+  &.resume { background-image: url('../images/social/resume.png'); }
+}
+
+.side-nav-left,
+.side-nav-right {
+  display: none;
+  overflow: visible;
+  justify-content: center;
+  width: var(--spacing-5);
+  padding-top: var(--spacing-4);
+
+  @media (--bp5) {
+    display: flex;
+  }
+}
+
+.side-nav-left {
+  left: 0;
+  margin-left: calc(var(--side-spacing-4) - var(--spacing-4));
+}
+
+.side-nav-right {
+  right: 0;
+  margin-right: calc(var(--side-spacing-4) - var(--spacing-4));
+}

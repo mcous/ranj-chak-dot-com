@@ -1,0 +1,10 @@
+/* contents-specific styles */
+
+.contents-section-hero {
+  background-size: contain;
+
+  &.film { background-image: url('../images/nav/film.png'); }
+  &.writing { background-image: url('../images/nav/writing.png'); }
+  &.art { background-image: url('../images/nav/art.png'); }
+  &.about { background-image: url('../images/nav/about.png'); }
+}

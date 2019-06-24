@@ -1,0 +1,18 @@
+.db { display: block; }
+.dib { display: inline-block; }
+.dn { display: none; }
+
+@media (--bp1) {
+  .db-bp1 { display: block; }
+  .dib-bp1 { display: inline-block; }
+}
+
+@media (--bp2) {
+  .db-bp2 { display: block; }
+  .dib-bp2 { display: inline-block; }
+}
+
+@media (--bp3) {
+  .db-bp3 { display: block; }
+  .dib-bp3 { display: inline-block; }
+}

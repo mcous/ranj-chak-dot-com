@@ -1,7 +1,0 @@
-/* custom breakpoints */
-
-@custom-media --small-view (width >= 400px);
-@custom-media --medium-view (width >= 500px);
-@custom-media --large-view (width >= 700px);
-@custom-media --xlarge-view (width >= 1600px);
-@custom-media --medium-and-smaller (width <= 699px);
