@@ -569,7 +569,7 @@ export const CONTENT_BY_SECTION: SectionContentMap = {
       modal: true,
     },
     {
-      name: 'Gloria Anzaldua',
+      name: 'Gloria Anzaldúa',
       link: require('../images/art/gloria.jpg'),
       thumbnail: {
         src: require('../images/art/gloria.thumb.jpg'),
