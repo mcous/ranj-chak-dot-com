@@ -26,11 +26,13 @@ interface SocialLinkProps {
 const NAV_CX = 'transition-opacity'
 const NAV_LIST_CX = 'center w-100 w-80-bp3'
 const NAV_ITEM_CX = 'dib w-50 mb3 pl1 pr1 w-25-bp2 mb0-bp2'
-const NAV_LINK_ICON_CX = 'aspect aspect--5-3 nav-link-icon'
+const NAV_LINK_ICON_CX =
+  'aspect aspect--5-3 bg-center bg-no-repeat nav-link-icon'
 
 const SOCIAL_LIST_CX = 'mt3 flex flex-wrap justify-center'
 const SOCIAL_ITEM_CX = 'w3 pa2'
-const SOCIAL_LINK_ICON_CX = 'aspect aspect--1-1 social-link-icon'
+const SOCIAL_LINK_ICON_CX =
+  'aspect aspect--1-1 bg-center bg-contain bg-no-repeat social-link-icon'
 
 const SIDE_NAV_CX = 'transition-opacity top-0 fixed'
 const LEFT_NAV_CX = `${SIDE_NAV_CX} side-nav-left`

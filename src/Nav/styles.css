@@ -34,8 +34,6 @@
 }
 
 .social-link-icon {
-  background-size: contain;
-
   &.instagram { background-image: url('../images/social/instagram.png'); }
   &.facebook { background-image: url('../images/social/facebook.png'); }
   &.twitter { background-image: url('../images/social/twitter.png'); }

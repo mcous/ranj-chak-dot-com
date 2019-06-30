@@ -35,15 +35,3 @@ To deploy the site, run
 - `npm release`
 
 The version will be bumped, a change log will be generated, and the `dist` folder will be built and deployed to the `gh-pages` branch.
-
-## source
-
-The logic, styling, structure, images, and content of the page all live in separate places:
-
-- logic - `src/script`
-- styling - `src/style`
-- template - `src/template`
-- content - `src/content.json`
-- images - `src/img`
-
-The build steps output to `public`.
