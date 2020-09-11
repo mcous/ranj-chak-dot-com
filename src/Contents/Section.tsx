@@ -14,7 +14,6 @@ const HERO_CX = 'aspect aspect--16-9 bg-center bg-no-repeat nav-link-icon'
 function createSection(name: SectionName): JSX.Element {
   switch (name) {
     case 'film':
-    case 'writing':
     case 'art': {
       return <MediaList items={CONTENT_BY_SECTION[name]} />
     }

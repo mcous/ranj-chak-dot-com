@@ -14,12 +14,6 @@
       url('../images/nav/film-hover.png');
   }
 
-  &.writing {
-    background-image:
-      url('../images/nav/writing.png'),
-      url('../images/nav/writing-hover.png');
-  }
-
   &.art {
     background-image:
       url('../images/nav/art.png'),
@@ -35,7 +29,6 @@
 
 .social-link-icon {
   &.instagram { background-image: url('../images/social/instagram.png'); }
-  &.facebook { background-image: url('../images/social/facebook.png'); }
   &.twitter { background-image: url('../images/social/twitter.png'); }
   &.vimeo { background-image: url('../images/social/vimeo.png'); }
   &.linkedin { background-image: url('../images/social/linkedin.png'); }

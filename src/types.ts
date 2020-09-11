@@ -10,7 +10,6 @@ export interface ContentSection {
 
 export interface SectionContentMap {
   film: MediaItem[]
-  writing: MediaItem[]
   art: MediaItem[]
   about: AboutContent
 }
@@ -30,18 +29,7 @@ export interface ImageSrc {
 }
 
 export interface AboutContent {
-  doodle: AboutDoodle
   content: ComponentChildren[]
-}
-
-export interface AboutDoodle {
-  areas: AboutDoodleHitbox[]
-  defaultImage: string
-}
-
-export interface AboutDoodleHitbox {
-  box: [number, number, number, number]
-  image: string
 }
 
 export interface AppStateContextValue {

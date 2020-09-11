@@ -8,7 +8,7 @@ const LINK_CX = 'blue dim'
 export function Footer(): JSX.Element {
   return (
     <footer class={CX}>
-      <p class={LEFT_COPY_CX}>© 2016-2019 by Ranjani Chakraborty</p>
+      <p class={LEFT_COPY_CX}>© 2016-2020 by Ranjani Chakraborty</p>
       <p class={COPY_CX}>
         Built by{' '}
         <a
