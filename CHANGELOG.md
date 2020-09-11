@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0](https://github.com/mcous/ranjchak-dot-com/compare/v2.0.2...v3.0.0) (2020-09-11)
+
+
+### refactor
+
+* remove writing section and about doodle ([#5](https://github.com/mcous/ranjchak-dot-com/issues/5)) ([298e79e](https://github.com/mcous/ranjchak-dot-com/commit/298e79e))
+
+
+### BREAKING CHANGES
+
+* sections and content data removed
+
+
+
 ### [2.0.2](https://github.com/mcous/ranjchak-dot-com/compare/v2.0.1...v2.0.2) (2019-06-30)
 
 
