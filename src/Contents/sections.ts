@@ -7,11 +7,6 @@ export const SECTIONS: ContentSection[] = [
     label: 'A selection of videos I produced',
   },
   {
-    name: 'writing',
-    title: 'Writing!',
-    label: 'Shockingly true stories I wrote',
-  },
-  {
     name: 'art',
     title: 'Art!',
     label: 'Some art I made',

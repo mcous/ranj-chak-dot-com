@@ -24,12 +24,12 @@ interface SocialLinkProps {
 }
 
 const NAV_CX = 'transition-opacity'
-const NAV_LIST_CX = 'center w-100 w-80-bp3'
-const NAV_ITEM_CX = 'dib w-50 mb3 pl1 pr1 w-25-bp2 mb0-bp2'
+const NAV_LIST_CX = 'center w-100 w-80-bp3 flex flex-wrap justify-center'
+const NAV_ITEM_CX = 'w-50 mb3 pl1 pr1 w-third-bp1 mb0-bp1'
 const NAV_LINK_ICON_CX =
   'aspect aspect--5-3 bg-center bg-no-repeat nav-link-icon'
 
-const SOCIAL_LIST_CX = 'mt3 flex flex-wrap justify-center'
+const SOCIAL_LIST_CX = 'center w-80 w-100-bp1 mt3 flex flex-wrap justify-center'
 const SOCIAL_ITEM_CX = 'w3 pa2'
 const SOCIAL_LINK_ICON_CX =
   'aspect aspect--1-1 bg-center bg-contain bg-no-repeat social-link-icon'
@@ -54,11 +54,6 @@ const SOCIAL_ITEMS: SocialLinkProps[] = [
     name: 'instagram',
     label: 'Instagram',
     link: 'https://www.instagram.com/ranjchak/',
-  },
-  {
-    name: 'facebook',
-    label: 'facebook',
-    link: 'https://www.facebook.com/ranjani.chakraborty',
   },
   {
     name: 'twitter',
@@ -142,6 +137,16 @@ function SideNav(props: SideNavProps): JSX.Element | null {
   )
 }
 
+export function SocialIconsList(): JSX.Element {
+  return (
+    <ul class={SOCIAL_LIST_CX}>
+      {SOCIAL_ITEMS.map((s, i) => (
+        <SocialLinkItem key={i} class={SOCIAL_ITEM_CX} {...s} />
+      ))}
+    </ul>
+  )
+}
+
 export function Nav(): JSX.Element {
   const [floating, setFloating] = useState(false)
   const prevFloating = useRef(floating)
@@ -188,11 +193,7 @@ export function Nav(): JSX.Element {
                 <NavLinkItem key={i} class={NAV_ITEM_CX} {...n} />
               ))}
             </ul>
-            <ul class={SOCIAL_LIST_CX}>
-              {SOCIAL_ITEMS.map((s, i) => (
-                <SocialLinkItem key={i} class={SOCIAL_ITEM_CX} {...s} />
-              ))}
-            </ul>
+            <SocialIconsList />
           </nav>
         )}
       </div>
