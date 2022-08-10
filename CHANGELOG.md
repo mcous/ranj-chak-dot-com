@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.1.0](https://github.com/mcous/ranjchak-dot-com/compare/v3.0.0...v3.1.0) (2022-08-10)
+
+
+### Features
+
+* **resume:** add new resume for 2022 ([10cc7fa](https://github.com/mcous/ranjchak-dot-com/commit/10cc7fa))
+
+
+
 ## [3.0.0](https://github.com/mcous/ranjchak-dot-com/compare/v2.0.2...v3.0.0) (2020-09-11)
 
 
