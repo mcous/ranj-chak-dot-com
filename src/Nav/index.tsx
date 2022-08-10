@@ -78,7 +78,7 @@ const SOCIAL_ITEMS: SocialLinkProps[] = [
   {
     name: 'resume',
     label: 'Resume',
-    link: '/ranj-chak-cv.pdf',
+    link: '/ranjani-resume-2022.pdf',
   },
 ]
 
